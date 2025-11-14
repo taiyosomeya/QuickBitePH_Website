@@ -161,41 +161,54 @@ body {
     border: 2px solid black;
 }
 
-/* CATEGORY BUTTONS */
+/* CATEGORY BUTTONS — UPDATED */
 .category-section {
     margin-top: 25px;
     text-align: center;
 }
 
 .category-btn {
-    padding: 8px 20px;
-    margin: 5px;
+    padding: 10px 30px;
+    margin: 10px;
     background: #EFEFEF;
-    border: 1px solid black;
-    border-radius: 5px;
+    border: 2px solid #bbb;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
 }
 
-/* Filipino Line */
+.category-btn:hover {
+    background: #d4d4d4;
+    transform: scale(1.05);
+}
+
+/* Filipino Line — UPDATED */
 .filipino-text {
     text-align: center;
-    margin-top: 18px;
-    font-size: 14px;
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
 }
 
-/* REWARDS SECTION */
+/* REWARDS SECTION — UPDATED */
 .rewards-section {
     text-align: center;
     margin-top: 40px;
-    padding: 25px;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .rewards-box, .image-box {
     margin: auto;
-    width: 250px;
-    background: #D9D9D9;
+    width: 260px;
+    background: #d9d9d9;
     padding: 20px;
     border: 2px solid black;
-    border-radius: 10px;
+    border-radius: 12px;
 }
 
 .image-box {
@@ -204,6 +217,18 @@ body {
 
 .reward-links {
     margin-top: 10px;
+    font-size: 16px;
+}
+
+.reward-links a {
+    text-decoration: none;
+    color: #555;
+    font-weight: bold;
+}
+
+.reward-links a:hover {
+    color: #000;
+    text-decoration: underline;
 }
 
 /* FOOTER */
