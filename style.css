@@ -1,0 +1,231 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f4f4f4;
+}
+
+/* NAVBAR */
+.navbar {
+    width: 100%;
+    background: #D9D9D9;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-circle {
+    border: 2px solid black;
+    border-radius: 50%;
+    padding: 18px;
+    width: 65px;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.brand {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 35px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+}
+
+.nav-right {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: white;
+    padding: 6px 10px;
+    border-radius: 8px;
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+}
+
+.login-btn {
+    background: #fff;
+    border: 1px solid black;
+    padding: 6px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.nav-icons {
+    display: flex;
+    gap: 10px;
+}
+
+/* HERO SECTION */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 60px;
+    background: white;
+}
+
+.hero-text {
+    width: 55%;
+}
+
+.hero-text h1 {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.hero-text p {
+    width: 85%;
+    font-size: 16px;
+}
+
+.order-now {
+    margin-top: 20px;
+    padding: 12px 22px;
+    border: 1px solid black;
+    background: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.hero-image {
+    width: 35%;
+    height: 220px;
+    border: 2px solid black;
+    background: #D9D9D9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* DIVIDER */
+.divider {
+    margin: 20px 0;
+}
+
+/* MENU HEADER */
+.menu-header h2 {
+    text-align: center;
+    font-size: 28px;
+}
+
+.menu-subheader h3 {
+    text-align: center;
+    margin-top: 8px;
+    margin-bottom: 25px;
+    font-style: italic;
+}
+
+/* MENU BOXES */
+.menu-boxes {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 0 20px;
+}
+
+.menu-box {
+    width: 200px;
+    height: 150px;
+    background: #D9D9D9;
+    border-radius: 10px;
+    border: 2px solid black;
+}
+
+/* CATEGORY BUTTONS */
+.category-section {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.category-btn {
+    padding: 8px 20px;
+    margin: 5px;
+    background: #EFEFEF;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+/* Filipino Line */
+.filipino-text {
+    text-align: center;
+    margin-top: 18px;
+    font-size: 14px;
+}
+
+/* REWARDS SECTION */
+.rewards-section {
+    text-align: center;
+    margin-top: 40px;
+    padding: 25px;
+}
+
+.rewards-box, .image-box {
+    margin: auto;
+    width: 250px;
+    background: #D9D9D9;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.image-box {
+    margin-top: 15px;
+}
+
+.reward-links {
+    margin-top: 10px;
+}
+
+/* FOOTER */
+.footer {
+    margin-top: 60px;
+    padding: 40px;
+    background: #D9D9D9;
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer-col {
+    line-height: 1.8;
+}
+
+.footer-logo {
+    border: 2px solid black;
+    padding: 25px;
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
