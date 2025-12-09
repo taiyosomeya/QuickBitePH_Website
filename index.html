@@ -1,142 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QuickBite PH</title>
+
+    <!-- CSS Reference -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- Google Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 <body>
 
-    <!-- NAVBAR -->
-    <nav class="navbar">
+    <!-- NAVIGATION BAR -->
+    <header class="navbar">
         <div class="nav-left">
-            <div class="logo-circle">
-                <img src="logo.jpg" alt="QuickBite PH Logo">
-            </div>
-            <div class="brand">QuickBite PH</div>
+            <div class="logo-circle">Logo</div>
+            <h2 class="brand">QuickBite PH</h2>
         </div>
 
-        <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Menu</a></li>
-            <li><a href="#">Promotions</a></li>
-            <li><a href="#">Contacts</a></li>
-            <li><a href="#">About Us</a></li>
-        </ul>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#menu-section">Menu</a></li>
+                <li><a href="#">Promotions</a></li>
+                <li><a href="#">Contacts</a></li>
+                <li><a href="#">About Us</a></li>
+            </ul>
+        </nav>
 
-            <div class="nav-right">
+        
+
+        <div class="nav-right">
             <div class="search-box">
-            <input type="text" placeholder="Search">
-    </div>
+                <input id="global-search" type="text" placeholder="Search">
+                <span class="material-icons">search</span>
+            </div>
+
             <button class="login-btn">Login</button>
-            <div class="nav-icons">👤 🛒</div>
-            <span>FAQ</span> <!-- ← Add this -->
-    </div>
-    </nav>
 
-    <!-- HERO -->
-    <section class="hero">
-        <div class="hero-text">
-            <h1>Welcome To QuickBite PH!</h1>
-            <p>Enjoy freshly prepared Filipino meals 
-            <br>made with love, delivered fast, hot, and 
-            <br>straight from our kitchen to your door!</p>
-            <button class="order-now">Order Now</button>
+            <div class="nav-icons">
+                <span class="material-icons">shopping_cart</span>
+                <span class="material-icons">help_outline</span>
+            </div>
         </div>
-        <div class="hero-image">Background Image</div>
+    </header>
+
+    <hr class="divider">
+
+    <!-- ----- START: Wireframe-style Menu Section (Inserted below homepage) ----- -->
+    <section id="menu-section" class="menu-wrap">
+
+        <!-- Category Tabs -->
+        <div class="menu-controls">
+            <div class="tabs" id="category-tabs">
+                <!-- JS will inject category buttons -->
+            </div>
+        </div>
+
+        <!-- Product Grid -->
+        <div id="product-grid" class="product-grid">
+            <!-- JS will inject product cards -->
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination" id="pagination">
+          
+        </div>
+
     </section>
-
-    <!-- MENU -->
-    <div class="divider"></div>
-    <div class="menu-header">
-        <h2><br>Our Menu</h2>
-    </div>
-    <div class="menu-subheader">
-        <h3>Simple. Flavorful. Delicious.</h3>
-    </div>
-
-    <div class="menu-grid">
-        <div class="menu-item">
-            <div class="menu-box"></div>
-            <button class="category-btn">Pasta & Noodles</button>
-        </div>
-        <div class="menu-item">
-            <div class="menu-box"></div>
-            <button class="category-btn">Wraps & Sandwiches</button>
-        </div>
-        <div class="menu-item">
-            <div class="menu-box"></div>
-            <button class="category-btn">Vegetable & Fruits</button>
-        </div>
-        <div class="menu-item">
-            <div class="menu-box"></div>
-            <button class="category-btn">Desserts</button>
-        </div>
-    </div>
-
-    <p class="filipino-text">
-        <br>100% PROUDLY FILIPINO — MADE WITH LOVE, SERVED HOT, AND DELICIOUS!</p>
+    
+    <p class="filipino-text">100% PROUDLY FILIPINO — MADE WITH LOVE, SERVED HOT, AND DELICIOUS!</p>
 
     <!-- REWARDS SECTION -->
     <section class="rewards-section">
-        <div class="rewards-pill small">
-            <div class="rewards-left">
-                <div class="rewards-title">QuickBite PH <br>&nbsp;&nbsp;&nbsp;&nbsp;Rewards</div>
-            </div>
-            <div class="rewards-middle">
-                <div class="image-box">
-                    <img src="logo.jpg" alt="Rewards">
-                </div>
-            </div>
-            <div class="rewards-right">
-                <p class="rewards-text">
-                    Join QuickBite Rewards to earn points with every purchase! Redeem your points for meals, treats, and exclusive perks.
-                </p>
-                <div class="reward-links">
-                    <a href="#">Sign Up</a>
-                    <a href="#">Login</a>
-                </div>
-            </div>
+        <div class="rewards-box">QuickBite PH Rewards</div>
+        <div class="image-box">Image</div>
+
+        <p>Join QuickBite Rewards to earn points with every purchase! Redeem your points for meals, treats, and exclusive perks.</p>
+
+        <div class="reward-links">
+            <a href="#">Sign Up</a> | <a href="#">Login</a>
         </div>
     </section>
 
     <!-- FOOTER -->
     <footer class="footer">
         <div class="footer-col">
-            <p>QuickBite PH</p>
-            <p>📍Manila, Philippines</p>
-            <p>📧support@quickbiteph.com</p>
-            <p>📞(+63) 912 345 6789</p>
-
-            <div class="social-links">
-                <div class="social-links">
-            <a href="#"><img src="image/facebook.png" alt="Facebook Icon"></a>
-            <a href="#"><img src="image/instagram.png" alt="Instagram Icon"></a>
-            <a href="#"><img src="image/twitter.png" alt="Twitter Icon"></a>
-            </div>
-
-            </div>
+            <h3>QuickBite PH</h3>
+            <p>Manila, Philippines</p>
+            <p>support@quickbiteph.com</p>
+            <p>(+63) 912 345 6789</p>
         </div>
 
         <div class="footer-col">
-            <p><strong>Home</strong></p>
+            <h4>Home</h4>
             <p>About Us</p>
             <p>Menu</p>
             <p>Promotions</p>
         </div>
 
         <div class="footer-col">
-            <p><strong>Contacts</strong></p>
+            <h4>Contacts</h4>
             <p>My Accounts / Orders</p>
             <p>Carts</p>
             <p>FAQ</p>
         </div>
 
-        <div class="footer-logo">
-            <img src="logo.jpg" alt="QuickBite PH Logo">
-        </div>
+        <div class="footer-logo">Logo</div>
     </footer>
 
+    <!-- JS File -->
+    <script src="script.js"></script>
 </body>
 </html>
