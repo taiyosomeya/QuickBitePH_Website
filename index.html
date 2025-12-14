@@ -35,7 +35,7 @@
         </div>
     </nav>
 
-    <!-- HERO -->
+    <!-- HERO SECTION -->
     <section class="hero">
         <div class="hero-text">
             <h1>Welcome To QuickBite PH!</h1>
@@ -47,8 +47,10 @@
         <div class="hero-image">Background Image</div>
     </section>
 
-    <!-- MENU -->
+    <!-- DIVIDER -->
     <div class="divider"></div>
+
+    <!-- MENU SECTION -->
     <div class="menu-header">
         <h2><br>Our Menu</h2>
     </div>
@@ -57,26 +59,40 @@
     </div>
 
     <div class="menu-grid">
+
         <div class="menu-item">
-            <div class="menu-box"></div>
+            <div class="menu-box">
+                <img src="image/Pasta&Noodles.jpg" alt="Pasta & Noodles">
+            </div>
             <button class="category-btn">Pasta & Noodles</button>
         </div>
+
         <div class="menu-item">
-            <div class="menu-box"></div>
+            <div class="menu-box">
+                <img src="image/Wraps&Sandwiches.jpg" alt="Wraps & Sandwiches">
+            </div>
             <button class="category-btn">Wraps & Sandwiches</button>
         </div>
+
         <div class="menu-item">
-            <div class="menu-box"></div>
+            <div class="menu-box">
+                <img src="image/Fruits&Vegetables.jpg" alt="Vegetable & Fruits">
+            </div>
             <button class="category-btn">Vegetable & Fruits</button>
         </div>
+
         <div class="menu-item">
-            <div class="menu-box"></div>
-            <button class="category-btn">Desserts</button>
+            <div class="menu-box">
+                <img src="image/Desserts.jpg" alt="Desserts">
+            </div>
+            <button class="category-btn"> Pastry & Desserts</button>
         </div>
+
     </div>
 
     <p class="filipino-text">
-        <br>100% PROUDLY FILIPINO — MADE WITH LOVE, SERVED HOT, AND DELICIOUS!</p>
+        <br>100% PROUDLY FILIPINO — MADE WITH LOVE, SERVED HOT, AND DELICIOUS!
+    </p>
 
     <!-- REWARDS SECTION -->
     <section class="rewards-section">
@@ -102,39 +118,92 @@
     </section>
 
     <!-- FOOTER -->
-    <footer class="footer">
-        <div class="footer-col">
-            <p>QuickBite PH</p>
-            <p>📍Manila, Philippines</p>
-            <p>📧support@quickbiteph.com</p>
-            <p>📞(+63) 912 345 6789</p>
+<footer class="footer">
+    <div class="footer-col">
+        <p> QuickBite PH </p>
+        <p>📍Manila, Philippines</p>
+        <p>📧support@quickbiteph.com</p>
+        <p>📞(+63) 912 345 6789</p>
 
-            <div class="social-links">
-                <a href="#"><img src="image/facebook.png" alt="Facebook Icon"></a>
-                <a href="#"><img src="image/instagram.png" alt="Instagram Icon"></a>
-                <a href="#"><img src="image/twitter.png" alt="Twitter Icon"></a>
+        <div class="social-links">
+            <a href="https://www.facebook.com/elijahart0" target="_blank">
+                <img src="image/facebook.png" alt="Facebook Icon">
+            </a>
+            <a href="https://www.instagram.com/elijah_art0724/" target="_blank">
+                <img src="image/instagram.png" alt="Instagram Icon">
+            </a>
+            <a href="https://x.com/elijah_hart0" target="_blank">
+                <img src="image/twitter.png" alt="Twitter Icon">
+            </a>
+        </div>
+    </div>
+
+    <div class="footer-col">
+        <p>Home</p>
+        <p>About Us</p>
+        <p>Menu</p>
+        <p>Promotions</p>
+    </div>
+    
+    <div class="footer-col">
+        <p>Contacts</p>
+        <p>My Accounts / Orders</p>
+        <p>Carts</p>
+        <p>FAQ</p>
+    </div>
+
+    <div class="footer-logo">
+        <img src="logo.jpg" alt="QuickBite PH Logo">
+    </div>
+</footer>
+
+
+    <!-- LOGIN MODAL -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+
+            <span class="close-btn">&times;</span>
+
+            <div class="modal-logo">
+                <img src="logo.jpg" alt="QuickBite Logo">
             </div>
-        </div>
 
-        <div class="footer-col">
-            <p><strong>Home</strong></p>
-            <p>About Us</p>
-            <p>Menu</p>
-            <p>Promotions</p>
-        </div>
+            <h2>Welcome Back!</h2>
+            <p class="subtitle">Sign in to your account.</p>
 
-        <div class="footer-col">
-            <p><strong>Contacts</strong></p>
-            <p>My Accounts / Orders</p>
-            <p>Carts</p>
-            <p>FAQ</p>
-        </div>
+            <form class="login-form">
 
-        <div class="footer-logo">
-            <img src="logo.jpg" alt="QuickBite PH Logo">
-        </div>
-    </footer>
+                <div class="input-group">
+                    <input type="text" id="emailInput" placeholder="Email">
+                    <span class="error-msg" id="emailError"> This field cannot be blank.</span>
+                </div>
 
+                <div class="input-group password-box">
+                    <input type="password" id="passwordInput" placeholder="Password">
+                    <span class="toggle-password">👁️</span>
+                </div>
+
+                <a href="#" class="forgot">Forgot your Password?</a>
+
+                <button type="button" class="login-btn-modal">Log In</button>
+
+                <div class="divider-or"><span>OR</span></div>
+
+                <button type="button" class="facebook-btn">Log in with Facebook</button>
+
+                <button type="button" class="guest-btn">Continue as Guest</button>
+
+            </form>
+
+            <p class="disclaimer">
+                By continuing, you agree to our updated 
+                <a href="#">Terms & Conditions</a> and 
+                <a href="#">Privacy Policy</a>.
+            </p>
+            <p class="signup-link">Sign Up Here!</p>
+
+        </div>
+    </div>
+<script src="script.js"></script>
 </body>
 </html>
-
