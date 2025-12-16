@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuickBite PH</title>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <div class="logo-circle">
+        <img src="assets/images/Logo/logo.jpg" alt="QuickBite PH Logo">
+      </div>
+      <div class="brand">QuickBite PH</div>
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="#">Promotions</a></li>
+      <li><a href="contacts.html">Contacts</a></li>
+      <li><a href="#">About Us</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <div class="search-box">
+        <input type="text" placeholder="Search">
+      </div>
+      <button class="login-btn">Login</button>
+      <div class="nav-icons">👤 🛒</div>
+      <span>FAQ</span>
+    </div>
+  </nav>
+
+
+  <!-- PAGE CONTENT -->
+  <div class="page-background">
+
+    <!-- STORY -->
+    <section class="story-section">
+      <div class="story-text">
+        <h1>Our Story</h1>
+        <p>
+          QuickBite PH is an online food ordering website that offers freshly prepared and regularly updated meals made by our in-house chefs. 
+          It provides a convenient and reliable way for customers to browse our diverse menu, discover new dishes, and place secure online orders in a fast, user-friendly platform.
+        </p>
+      </div>
+    </section>
+
+    <!-- MISSION & VISION -->
+    <section class="about-features">
+      <div class="feature-text">
+        <h2>Mission</h2>
+        <p>To bring fresh, flavorful meals closer to everyone by providing a fast, reliable, and user-friendly online ordering experience.</p>
+      </div>
+
+      <div class="feature-text">
+        <h2>Vision</h2>
+        <p>To become the most trusted online food service brand where every meal guarantees its freshness, convenience, and satisfaction.</p>
+      </div>
+    </section>
+
+    <!-- OBJECTIVES -->
+    <section class="objective-section">
+      <div class="objective-container">
+        <h1 class="objective-title">Objectives</h1>
+        <div class="objective-cards">
+          <div class="objective-card first">
+            <i class="fa-solid fa-droplet objective-icon"></i>
+            <div class="objective-text">
+              <h4>Ease of Use</h4>
+              <p>Provide a user-friendly and seamless online ordering experience.</p>
+            </div>
+          </div>
+
+          <div class="objective-card second">
+            <i class="fa-solid fa-smog objective-icon"></i>
+            <div class="objective-text">
+              <h4>Exceptional Food Standards</h4>
+              <p>Maintain high standards of food freshness, taste, and quality in every order.</p>
+            </div>
+          </div>
+
+          <div class="objective-card third">
+            <i class="fa-solid fa-person objective-icon"></i>
+            <div class="objective-text">
+              <h4>Speed & Security</h4>
+              <p>Ensure fast, reliable, and secure delivery and transaction processes.</p>
+            </div>
+          </div>
+
+          <div class="objective-card fourth">
+            <i class="fa-solid fa-dollar-sign objective-icon"></i>
+            <div class="objective-text">
+              <h4>Trust & Loyalty</h4>
+              <p>Build strong customer trust through excellent service and consistent quality.</p>
+            </div>
+          </div>
+
+          <div class="objective-card fifth">
+            <i class="fa-solid fa-seedling objective-icon"></i>
+            <div class="objective-text">
+              <h4>Green Initiatives</h4>
+              <p>Implement eco-friendly and sustainable food packaging solutions.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-col">
+      <p>QuickBite PH</p>
+      <p>📍 Manila, Philippines</p>
+      <p>📧 support@quickbiteph.com</p>
+      <p>📞 (+63) 912 345 6789</p>
+    </div>
+
+    <div class="footer-col">
+      <a href="#">Carts</a>   
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="promotion.html">Promotions</a>
+      <a href="about_us.html">About </a>
+    </div>
+
+    <div class="footer-col">
+      <a href="#">Contacts</a>
+      <a href="#">My Contacts/Orders
+      <a href="faq.html">FAQ</a>
+    </div>
+
+    <div class="footer-logo">
+      <img src="assets/images/Logo/logo.jpg" alt="QuickBite PH Logo">
+    </div>
+  </footer>
+
+
+  <!-- LOGIN MODAL -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+
+            <span class="close-btn">&times;</span>
+
+            <div class="modal-logo">
+                <img src="logo.jpg" alt="QuickBite Logo">
+            </div>
+
+            <h2>Welcome Back!</h2>
+            <p class="subtitle">Sign in to your account.</p>
+
+            <form class="login-form">
+
+                <div class="input-group">
+                    <input type="text" id="emailInput" placeholder="Email">
+                    <span class="error-msg" id="emailError"> This field cannot be blank.</span>
+                </div>
+
+                <div class="input-group password-box">
+                    <input type="password" id="passwordInput" placeholder="Password">
+                    <span class="toggle-password">👁️</span>
+                </div>
+
+                <a href="#" class="forgot">Forgot your Password?</a>
+
+                <button type="button" class="login-btn-modal">Log In</button>
+
+                <div class="divider-or"><span>OR</span></div>
+
+                <button type="button" class="facebook-btn">Log in with Facebook</button>
+
+                <button type="button" class="guest-btn">Continue as Guest</button>
+
+            </form>
+
+
+
+
+    <p class="disclaimer">
+      By continuing, you agree to our
+      <a href="#">Terms & Conditions</a> and
+      <a href="#">Privacy Policy</a>.
+    </p>
+
+    <p class="signup-link">Sign Up Here!</p>
+
+  </div>
+</div>
+
+
+     <style>
+    /* ================= GLOBAL ================= */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #fff4dc;
+      color: #000;
+    }
+
+    /* ================= NAVBAR ================= */
+    .navbar {
+      width: 100%;
+      background: #fff4dc;
+      padding: 5px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #000;
+      position: relative;
+      z-index: 10;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-circle {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      border: 2px solid black;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .brand {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: black;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 10px 15px;
+      transition: 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: #444;
+      transform: scale(1.1);
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+      background: #fff;
+      padding: 4px 14px;
+      border-radius: 999px;
+      border: 2px solid #000;
+      transition: 0.2s ease;
+    }
+
+    .search-box input {
+      border: none;
+      outline: none;
+      width: 140px;
+    }
+
+    .login-btn {
+      background: white;
+      border: 2px solid #000;
+      border-radius: 999px;
+      padding: 5px 18px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .login-btn:hover {
+      background: #f7f1e1;
+    }
+
+    .nav-icons {
+      font-size: 18px;
+      cursor: pointer;
+      display: flex;
+      gap: 10px;
+    }
+
+    .nav-right span {
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    /* ================= PAGE BACKGROUND ================= */
+    .page-background {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-background::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: url("assets/images/logo/logo.jpg");
+      background-size: cover;
+      background-position: center;
+      filter: blur(12px);
+      transform: scale(1.1);
+      z-index: -2;
+    }
+
+    .page-background::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      z-index: -1;
+    }
+
+    /* ================= STORY ================= */
+.story-section {
+  padding: 70px;
+  text-align: center;
+  color: white; /* black text */
+}
+
+.story-text {
+  max-width: 700px;
+  margin: auto;
+}
+
+.story-text h1 {
+  font-size: 48px;
+  margin-bottom: 25px;
+  text-transform: lowercase;
+}
+
+.story-text p {
+  font-size: 22px; /* increased from 18px */
+  line-height: 1.8;
+}
+
+/* ================= MISSION & VISION ================= */
+.about-features {
+  padding: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  text-align: center;
+  color: white; /* black text */
+}
+
+.feature-text {
+  max-width: 700px;
+  margin: auto;
+}
+
+.feature-text h2 {
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.feature-text p {
+  font-size: 22px; /* increased from 18px */
+  line-height: 1.8;
+}
+
+
+    /* ================= OBJECTIVES ================= */
+    .objective-section {
+      padding: 80px 60px;
+      color: #fff;
+    }
+
+    .objective-container {
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .objective-title {
+      font-size: 40px;
+      margin-bottom: 30px;
+    }
+
+    .objective-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .objective-card {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      padding: 22px;
+      border-radius: 16px;
+      background: #f9f9e0;
+      color: #000;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: 0.6s ease;
+    }
+
+    .objective-icon {
+      font-size: 28px;
+      color: #3b1f14;
+    }
+
+    .objective-text h4 {
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+
+    .objective-text p {
+      font-size: 14px;
+    }
+
+  
+  .objective-text {
+  text-align: center;
+  flex: 1;
+  }
+
+
+  .objective-icon {
+  display: none;
+  }
+
+
+    
+    /* ================= FOOTER ================= */
+    .footer {
+      margin-top: 40px;
+      padding: 40px;
+      background: #fff4dc;
+      display: flex;
+      justify-content: space-around;
+      border-top: 2px solid #000;
+      flex-wrap: wrap;
+    }
+
+    .footer-col {
+      line-height: 1.8;
+      min-width: 200px;
+      margin-bottom: 20px;
+    }
+
+    .footer-col p,
+    .footer-col a {
+      font-size: 14px;
+      color: #000;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .footer-logo {
+      width: 125px;
+      height: 125px;
+      border-radius: 50%;
+      border: 2px solid black;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .footer-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @media (max-width: 768px) {
+      .objective-card {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .about-features {
+        padding: 50px 30px;
+      }
+    }
+  </style>
+
+  <script>
+    window.onload = () => {
+      document.querySelectorAll(".objective-card").forEach((card, i) => {
+        setTimeout(() => {
+          card.style.opacity = 1;
+          card.style.transform = "translateY(0)";
+        }, i * 150);
+      });
+    };
+  </script>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
