@@ -5,205 +5,126 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QuickBite PH</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
 
-    <!-- NAVBAR -->
-    <nav class="navbar">
-        <div class="nav-left">
-            <div class="logo-circle">
-                <img src="logo.jpg" alt="QuickBite PH Logo">
-            </div>
-            <div class="brand">QuickBite PH</div>
-        </div>
+    <!--MENU SECTION-->
+     <nav class="navbar">
+    <div class="nav-left">
+      <div class="logo-circle">
+        <img src="assets/images/Logo/logo.jpg" alt="QuickBite PH Logo">
+      </div>
+      <div class="brand">QuickBite PH</div>
+    </div>
 
-        <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Menu</a></li>
-            <li><a href="#">Promotions</a></li>
-            <li><a href="contacts.html">Contacts</a></li>
-            <li><a href="#">About Us</a></li>
-        </ul>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="promotion.html">Promotions</a></li>
+      <li><a href="contacts.html">Contacts</a></li>
+      <li><a href="about_us.html">About Us</a></li>
+    </ul>
 
-        <div class="nav-right">
-            <div class="search-box">
-                <input type="text" placeholder="Search">
-            </div>
-            <button class="login-btn">Login</button>
-            <div class="nav-icons">👤 🛒</div>
-            <span>FAQ</span>
-        </div>
-    </nav>
-
-    <!-- HERO SECTION -->
-    <section class="hero">
-        <div class="hero-text">
-            <h1>Welcome To QuickBite PH!</h1>
-            <p>Enjoy freshly prepared Filipino meals 
-            <br>made with love, delivered fast, hot, and 
-            <br>straight from our kitchen to your door!</p>
-            <button class="order-now">Order Now</button>
-        </div>
-        <div class="hero-image">Background Image</div>
-    </section>
-
-    <!-- DIVIDER -->
-    <div class="divider"></div>
+    <div class="nav-right">
+      <div class="search-box">
+        <input type="text" placeholder="Search">
+      </div>
+      <button class="login-btn">Login</button>
+      <div class="nav-icons">👤 🛒</div>
+      <span>FAQ</span>
+    </div>
+  </nav>
 
     <!-- MENU SECTION -->
-    <div class="menu-header">
-        <h2><br>Our Menu</h2>
-    </div>
-    <div class="menu-subheader">
-        <h3>Simple. Flavorful. Delicious.</h3>
-    </div>
-
-    <div class="menu-grid">
-
-        <div class="menu-item">
-            <div class="menu-box">
-                <img src="image/Pasta&Noodles.jpg" alt="Pasta & Noodles">
-            </div>
-            <button class="category-btn">Pasta & Noodles</button>
-        </div>
-
-        <div class="menu-item">
-            <div class="menu-box">
-                <img src="image/Wraps&Sandwiches.jpg" alt="Wraps & Sandwiches">
-            </div>
-            <button class="category-btn">Wraps & Sandwiches</button>
-        </div>
-
-        <div class="menu-item">
-            <div class="menu-box">
-                <img src="image/Fruits&Vegetables.jpg" alt="Vegetable & Fruits">
-            </div>
-            <button class="category-btn">Vegetable & Fruits</button>
-        </div>
-
-        <div class="menu-item">
-            <div class="menu-box">
-                <img src="image/Desserts.jpg" alt="Desserts">
-            </div>
-            <button class="category-btn"> Pastry & Desserts</button>
-        </div>
-
-    </div>
-
-    <p class="filipino-text">
-        <br>100% PROUDLY FILIPINO — MADE WITH LOVE, SERVED HOT, AND DELICIOUS!
-    </p>
-
-    <!-- REWARDS SECTION -->
-    <section class="rewards-section">
-        <div class="rewards-pill small">
-            <div class="rewards-left">
-                <div class="rewards-title">QuickBite PH <br>&nbsp;Rewards</div>
-            </div>
-            <div class="rewards-middle">
-                <div class="image-box">
-                    <img src="logo.jpg" alt="Rewards">
-                </div>
-            </div>
-            <div class="rewards-right">
-                <p class="rewards-text">
-                    Join QuickBite Rewards to earn points with every purchase! Redeem your points for meals, treats, and exclusive perks.
-                </p>
-                <div class="reward-links">
-                    <a href="#">Sign Up</a>
-                    <a href="#">Login</a>
-                </div>
+        <div class="menu-controls">
+            <div class="tabs" id="category-tabs"></div>
+            <div style="display:flex; gap:10px;">
+                <input id="global-search" type="text" placeholder="Search..." 
+                    style="padding:8px 12px; border:1px solid #333; border-radius:6px;">
+                <select id="sort-select" style="padding:8px 12px; border:1px solid #333; border-radius:6px;">
+                    <option value="default">Sort</option>
+                    <option value="price-asc">Price: Low → High</option>
+                    <option value="price-desc">Price: High → Low</option>
+                    <option value="time-asc">Prep Time: Fastest</option>
+                    <option value="time-desc">Prep Time: Longest</option>
+                </select>
             </div>
         </div>
+
+        <div class="product-grid" id="product-grid"></div>
+        <div class="pagination" id="pagination"></div>
+
+        <!-- PRODUCT LIST -->
+        <script>
+            const products = [
+                /* ---------- RICE BOWLS ---------- */
+                {id:101,title:"Salted Egg Chicken Wings",primaryCategory:"Rice Bowls",price:149.00,time:15,tags:["Chicken","Spicy"],image:"assets/images/menu/salted_egg.jpg"},
+                {id:102,title:"Beef Tapa",primaryCategory:"Rice Bowls",price:129.00,time:14,tags:["Beef"],image:"assets/images/menu/beef_tapa.jpg"},
+                {id:104,title:"Grilled Bangus Belly",primaryCategory:"Rice Bowls",price:159.00,time:16,tags:["Fish","Grilled"],image:"assets/images/menu/grilled_bangus.jpg"},
+                {id:105,title:"Teriyaki Chicken Bowl",primaryCategory:"Rice Bowls",price:139.00,time:15,tags:["Chicken","Sweet"],image:"assets/images/menu/teriyaki_bowl.jpg"},
+                {id:106,title:"Ham and Veggie Rice Bowl",primaryCategory:"Rice Bowls",price:119.00,time:12,tags:["Pork","Vegetarian-Friendly"],image:"assets/images/menu/ham_and_veggie_bowl.jpg"},
+                {id:107,title:"Chicken Ala King",primaryCategory:"Rice Bowls",price:129.00,time:14,tags:["Chicken","Creamy"],image:"assets/images/menu/chicken_ala_king.jpg"},
+                /* ---------- PASTA & NOODLES ---------- */
+                {id:201,title:"Creamy Carbonara",primaryCategory:"Pasta & Noodles",price:129.00,time:12,tags:["Creamy","Pork"],image:"assets/images/menu/creamy_carbonara.jpg"},
+                {id:202,title:"Filipino Sweet Spaghetti",primaryCategory:"Pasta & Noodles",price:99.00,time:10,tags:["Sweet"],image:"assets/images/menu/filipino_sweet_spaghetti.jpg"},
+                {id:203,title:"Garlic Butter Shrimp Pasta",primaryCategory:"Pasta & Noodles",price:159.00,time:14,tags:["Seafood","Garlic"],image:"assets/images/menu/garlic_butter_shrimp_pasta.jpg"},
+                {id:204,title:"Pancit Canton Express",primaryCategory:"Pasta & Noodles",price:89.00,time:9,tags:["Noodles","Savory"],image:"assets/images/menu/pancit_canton_express.jpg"},
+                /* ---------- WRAPS & SANDWICHES ---------- */
+                {id:301,title:"Beef Cheesy Shawarma Wrap",primaryCategory:"Wraps & Sandwiches",price:129.00,time:11,tags:["Beef","Cheesy"],image:"assets/images/menu/beef_shawarma_wrap.jpg"},
+                {id:302,title:"Melt Tuna Cheesy Sandwich",primaryCategory:"Wraps & Sandwiches",price:99.00,time:8,tags:["Seafood","Cheesy"],image:"assets/images/menu/melt_tuna_sandwich.jpg"},
+                {id:303,title:"Crispy Chicken Wrap",primaryCategory:"Wraps & Sandwiches",price:119.00,time:10,tags:["Chicken","Crispy"],image:"assets/images/menu/crispy_chicken_wrap.jpg"},
+                {id:304,title:"Cheesy Burger",primaryCategory:"Wraps & Sandwiches",price:109.00,time:12,tags:["Beef","Cheesy"],image:"assets/images/menu/cheesy_burger.jpg"},
+                {id:305,title:"Crispy Double Cheese Bacon w/ Egg",primaryCategory:"Wraps & Sandwiches",price:169.00,time:18,tags:["Pork","Cheesy"],image:"assets/images/menu/crispy_double_cheese_bacon.jpg"},
+                /* ---------- VEGETABLES & FRUITS ---------- */
+                {id:401,title:"Tofu Sisig Rice Bowl",primaryCategory:"Vegetables & Fruits",price:129.00,time:13,tags:["Vegetarian-Friendly","Spicy"],image:"assets/images/menu/tofu_sisig.jpg"},
+                {id:402,title:"Assorted Veggie Salad",primaryCategory:"Vegetables & Fruits",price:119.00,time:7,tags:["Vegetarian-Friendly","Fresh"],image:"assets/images/menu/veggie_salad.jpg"},
+                {id:403,title:"Fruity Mix",primaryCategory:"Vegetables & Fruits",price:89.00,time:5,tags:["Fresh","Healthy"],image:"assets/images/menu/fruity_mix.jpg"},
+                /* ---------- DRINKS ---------- */
+                {id:501,title:"Iced Caramel Coffee Macchiato",primaryCategory:"Drinks & Refreshers",price:69.00,time:3,tags:["Coffee","Sweet"],image:"assets/images/menu/iced_caramel_macchiato.jpg"},
+                {id:502,title:"Coke Sundae",primaryCategory:"Drinks & Refreshers",price:49.00,time:2,tags:["Cold","Sweet"],image:"assets/images/menu/coke_sundae.jpg"},
+                {id:503,title:"Pineapple Juice",primaryCategory:"Drinks & Refreshers",price:39.00,time:1,tags:["Fruit","Fresh"],image:"assets/images/menu/pineapple_juice.jpg"},
+                {id:504,title:"Citrus Cucumber",primaryCategory:"Drinks & Refreshers",price:45.00,time:2,tags:["Fresh","Healthy"],image:"assets/images/menu/citrus_cucumber.jpg"},
+                /* ---------- DESSERTS ---------- */
+                {id:601,title:"Leche Flan",primaryCategory:"Desserts",price:59.00,time:4,tags:["Sweet","Classic"],badge:"",image:"assets/images/menu/leche_flan.jpg"},
+                {id:602,title:"Coffee Jelly",primaryCategory:"Desserts",price:49.00,time:3,tags:["Coffee","Sweet"],badge:"",image:"assets/images/menu/coffee_jelly.jpg"},
+                {id:603,title:"Banana Turon Rolls",primaryCategory:"Desserts",price:39.00,time:5,tags:["Fried","Sweet"],badge:"",image:"assets/images/menu/banana_turon.jpg"},
+                {id:604,title:"Ube Cheesecake Slice",primaryCategory:"Desserts",price:79.00,time:6,tags:["Ube","Cheesy","Sweet"],image:"assets/images/menu/ube_cheesecake.jpg"}
+            ];
+        </script>
+
+        <script src="script.js"></script>
+
     </section>
 
-    <!-- FOOTER -->
-<footer class="footer">
+  <!-- FOOTER -->
+  <footer class="footer">
     <div class="footer-col">
-        <p> QuickBite PH </p>
-        <p>📍Manila, Philippines</p>
-        <p>📧support@quickbiteph.com</p>
-        <p>📞(+63) 912 345 6789</p>
-
-        <div class="social-links">
-            <a href="https://www.facebook.com/elijahart0" target="_blank">
-                <img src="image/facebook.png" alt="Facebook Icon">
-            </a>
-            <a href="https://www.instagram.com/elijah_art0724/" target="_blank">
-                <img src="image/instagram.png" alt="Instagram Icon">
-            </a>
-            <a href="https://x.com/elijah_hart0" target="_blank">
-                <img src="image/twitter.png" alt="Twitter Icon">
-            </a>
-        </div>
+      <p>QuickBite PH</p>
+      <p>📍 Manila, Philippines</p>
+      <p>📧 support@quickbiteph.com</p>
+      <p>📞 (+63) 912 345 6789</p>
     </div>
 
-    <div class="footer-col">
-        <p>Home</p>
-        <p>About Us</p>
-        <p>Menu</p>
-        <p>Promotions</p>
-    </div>
     
+     <div class="footer-col">
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="promotion.html">Promotions</a>
+      <a href="about_us.html">About </a>
+    </div>
+
     <div class="footer-col">
-        <p>Contacts</p>
-        <p>My Accounts / Orders</p>
-        <p>Carts</p>
-        <p>FAQ</p>
+      <a href="#">Contacts</a>
+      <a href="#">My Contacts/Orders
+      <a href="faq.html">FAQ</a>
     </div>
 
     <div class="footer-logo">
-        <img src="logo.jpg" alt="QuickBite PH Logo">
+      <img src="assets/images/Logo/logo.jpg" alt="QuickBite PH Logo">
     </div>
-</footer>
+  </footer>
 
 
-    <!-- LOGIN MODAL -->
-    <div id="loginModal" class="modal">
-        <div class="modal-content">
-
-            <span class="close-btn">&times;</span>
-
-            <div class="modal-logo">
-                <img src="logo.jpg" alt="QuickBite Logo">
-            </div>
-
-            <h2>Welcome Back!</h2>
-            <p class="subtitle">Sign in to your account.</p>
-
-            <form class="login-form">
-
-                <div class="input-group">
-                    <input type="text" id="emailInput" placeholder="Email">
-                    <span class="error-msg" id="emailError"> This field cannot be blank.</span>
-                </div>
-
-                <div class="input-group password-box">
-                    <input type="password" id="passwordInput" placeholder="Password">
-                    <span class="toggle-password">👁️</span>
-                </div>
-
-                <a href="#" class="forgot">Forgot your Password?</a>
-
-                <button type="button" class="login-btn-modal">Log In</button>
-
-                <div class="divider-or"><span>OR</span></div>
-
-                <button type="button" class="facebook-btn">Log in with Facebook</button>
-
-                <button type="button" class="guest-btn">Continue as Guest</button>
-
-            </form>
-
-            <p class="disclaimer">
-                By continuing, you agree to our updated 
-                <a href="#">Terms & Conditions</a> and 
-                <a href="#">Privacy Policy</a>.
-            </p>
-            <p class="signup-link">Sign Up Here!</p>
-
-        </div>
-    </div>
-<script src="script.js"></script>
 </body>
 </html>
