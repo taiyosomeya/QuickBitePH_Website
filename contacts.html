@@ -264,7 +264,7 @@
             opacity: 0;
             transform: translateY(10px);
             animation: slideUp 0.4s ease forwards;
-            transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease !important; /* Combined modal link transitions */
+            transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease !important;
         }
 
         /* STAGGER ANIMATION */
@@ -392,7 +392,7 @@
             position: relative;
             overflow: hidden;
             transition:
-                transform 0.25s ease, /* Combined transition duration */
+                transform 0.25s ease,
                 box-shadow 0.25s ease,
                 background 0.25s ease;
             will-change: transform;
@@ -407,9 +407,9 @@
 
         /* HOVER – LIFT + CONFIDENCE */
         .social-link:hover {
-            transform: translateY(-5px) scale(1.03); /* Most aggressive lift */
-            box-shadow: 0 16px 32px rgba(0,0,0,0.28); /* Most aggressive shadow */
-            background: #fff8ec; /* Hover background */
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 16px 32px rgba(0,0,0,0.28); 
+            background: #fff8ec; 
         }
 
         /* ACTIVE – PRESS FEEDBACK */
@@ -421,11 +421,10 @@
         /* ICON ANIMATION ONLY */
         .social-link span {
             font-size: 18px;
-            transition: transform 0.25s ease; /* Most accurate icon transition */
-        }
+            transition: transform 0.25s ease; 
 
         .social-link:hover span {
-            transform: scale(1.35) rotate(-10deg); /* Most aggressive icon effect */
+            transform: scale(1.35) rotate(-10deg);
         }
 
         /* RIPPLE / SWEEP EFFECT */
@@ -593,8 +592,7 @@
                 transform: translateX(0);
             }
         }
-        
-        /* Added missing animations for completeness, assuming they are in a linked style.css or intended to be here */
+            
         @keyframes fadeSlide {
             from { opacity: 0; transform: translateX(20px); }
             to { opacity: 1; transform: translateX(0); }
@@ -798,3 +796,4 @@
 
 </body>
 </html>
+
