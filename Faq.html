@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>QuickBite PH</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <div class="logo-circle">
+                <img src="logo.jpg" alt="QuickBite PH Logo" />
+            </div>
+            <div class="brand">QuickBite PH</div>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="#" data-target="home-section" class="nav-link active">Home</a></li>
+            <li><a href="#" data-target="menu-section" class="nav-link">Menu</a></li>
+            <li><a href="#" data-target="promotions-section" class="nav-link">Promotions</a></li>
+            <li><a href="#" data-target="contacts-section" class="nav-link">Contacts</a></li>
+            <li><a href="#" data-target="about-section" class="nav-link">About Us</a></li>
+        </ul>
+
+        <div class="nav-right">
+            <div class="search-box">
+                <input type="text" placeholder="Search" />
+            </div>
+            <button class="login-btn">Login</button>
+            <div class="nav-icons">👤 🛒</div>
+            <span id="faq-toggle" style="cursor:pointer; font-weight:bold;">FAQ</span>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT SECTIONS -->
+
+    <!-- HOME -->
+    <section id="home-section" class="section active-section">
+        <!-- HERO -->
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Welcome To QuickBite PH!</h1>
+                <p>
+                    Enjoy freshly prepared Filipino meals
+                    <br />
+                    made with love, delivered fast, hot, and
+                    <br />
+                    straight from our kitchen to your door!
+                </p>
+                <button class="order-now">Order Now</button>
+            </div>
+            <div class="hero-image">Background Image</div>
+        </section>
+
+        <!-- MENU -->
+        <div class="divider"></div>
+        <div class="menu-header">
+            <h2><br />Our Menu</h2>
+        </div>
+        <div class="menu-subheader">
+            <h3>Simple. Flavorful. Delicious.</h3>
+        </div>
+
+        <div class="menu-grid">
+            <div class="menu-item">
+                <div class="menu-box"></div>
+                <button class="category-btn">Pasta & Noodles</button>
+            </div>
+            <div class="menu-item">
+                <div class="menu-box"></div>
+                <button class="category-btn">Wraps & Sandwiches</button>
+            </div>
+            <div class="menu-item">
+                <div class="menu-box"></div>
+                <button class="category-btn">Vegetable & Fruits</button>
+            </div>
+            <div class="menu-item">
+                <div class="menu-box"></div>
+                <button class="category-btn">Desserts</button>
+            </div>
+        </div>
+
+        <p class="filipino-text">
+            <br />
+            100% PROUDLY FILIPINO — MADE WITH LOVE, SERVED HOT, AND DELICIOUS!
+        </p>
+
+        <!-- REWARDS SECTION -->
+        <section class="rewards-section">
+            <div class="rewards-pill small">
+                <div class="rewards-left">
+                    <div class="rewards-title">
+                        QuickBite PH
+                        <br />
+                        &nbsp;Rewards
+                    </div>
+                </div>
+                <div class="rewards-middle">
+                    <div class="image-box">
+                        <img src="logo.jpg" alt="Rewards" />
+                    </div>
+                </div>
+                <div class="rewards-right">
+                    <p class="rewards-text">
+                        Join QuickBite Rewards to earn points with every purchase!
+                        Redeem your points for meals, treats, and exclusive perks.
+                    </p>
+                    <div class="reward-links">
+                        <a href="#">Sign Up</a>
+                        <a href="#">Login</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section id="faq-section" class="section" style="display: none; padding: 40px;">
+        <h2 style="text-align: center; margin-bottom: 20px;">Frequently Asked Questions</h2>
+
+        <div class="faq-box">
+            <h3 class="faq-question">Ordering & Delivery</h3>
+            <div class="faq-answer" style="display:none;">
+                <p><strong>How do I order?</strong><br />Browse the menu → add items → checkout.</p>
+                <p><strong>How long is delivery?</strong><br />Usually 20–45 mins depending on your location.</p>
+                <p><strong>Delivery coverage?</strong><br />Metro Manila & nearby areas.</p>
+            </div>
+        </div>
+
+        <div class="faq-box">
+            <h3 class="faq-question">Accounts & Login Issues</h3>
+            <div class="faq-answer" style="display:none;">
+                <p><strong>Can't log in?</strong><br />Ensure your email/number is correct.</p>
+                <p><strong>Password Reset?</strong><br />Use “Forgot Password” on login page.</p>
+            </div>
+        </div>
+
+        <div class="faq-box">
+            <h3 class="faq-question">Payment Options</h3>
+            <div class="faq-answer" style="display:none;">
+                <p>We accept GCash, COD, Credit/Debit Cards.</p>
+            </div>
+        </div>
+
+        <div class="faq-box">
+            <h3 class="faq-question">Refunds & Cancellations</h3>
+            <div class="faq-answer" style="display:none;">
+                <p>Orders can be refunded if wrong or missing.</p>
+            </div>
+        </div>
+
+        <div class="faq-box">
+            <h3 class="faq-question">Privacy & Policy</h3>
+            <div class="faq-answer" style="display:none;">
+                <p>We protect your personal information securely.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-col">
+            <p>QuickBite PH</p>
+            <p>📍Manila, Philippines</p>
+            <p>📧support@quickbiteph.com</p>
+            <p>📞(+63) 912 345 6789</p>
+
+            <div class="social-links">
+                <a href="#"><img src="image/facebook.png" alt="Facebook Icon" /></a>
+                <a href="#"><img src="image/instagram.png" alt="Instagram Icon" /></a>
+                <a href="#"><img src="image/twitter.png" alt="Twitter Icon" /></a>
+            </div>
+        </div>
+
+        <div class="footer-col">
+            <p><strong>Home</strong></p>
+            <p>About Us</p>
+            <p>Menu</p>
+            <p>Promotions</p>
+        </div>
+
+        <div class="footer-col">
+            <p><strong>Contacts</strong></p>
+            <p>My Accounts / Orders</p>
+            <p>Carts</p>
+            <p>FAQ</p>
+        </div>
+
+        <div class="footer-logo">
+            <img src="logo.jpg" alt="QuickBite PH Logo" />
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

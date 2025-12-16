@@ -1,4 +1,4 @@
-// Search Box Animation
+// Search box background change on focus/blur
 const searchBox = document.querySelector(".search-box input");
 
 searchBox.addEventListener("focus", () => {
@@ -9,58 +9,75 @@ searchBox.addEventListener("blur", () => {
     searchBox.style.background = "transparent";
 });
 
-// LOGIN MODAL SCRIPT
-const loginBtnNavbar = document.querySelector(".login-btn");
-const loginModal = document.getElementById("loginModal");
-const closeBtn = document.querySelector(".close-btn");
+// Navigation links to toggle content sections
+const navLinks = document.querySelectorAll(".nav-link");
+const sections = document.querySelectorAll(".section");
+const faqSection = document.getElementById("faq-section");
+const faqToggle = document.getElementById("faq-toggle");
+const homeSection = document.getElementById("home-section");
 
-const emailInput = document.getElementById("emailInput");
-const emailError = document.getElementById("emailError");
-
-const passwordInput = document.getElementById("passwordInput");
-const togglePassword = document.querySelector(".toggle-password");
-
-const loginButton = document.querySelector(".login-btn-modal");
-
-// OPEN MODAL
-loginBtnNavbar.addEventListener("click", () => {
-    loginModal.style.display = "flex";
-});
-
-// CLOSE MODAL
-closeBtn.addEventListener("click", () => {
-    loginModal.style.display = "none";
-});
-
-window.addEventListener("click", (e) => {
-    if (e.target === loginModal) {
-        loginModal.style.display = "none";
-    }
-});
-
-// EMAIL VALIDATION
-emailInput.addEventListener("blur", () => {
-    if (emailInput.value.trim() === "") {
-        emailError.style.display = "block";
-    } else {
-        emailError.style.display = "none";
-    }
-});
-
-// PASSWORD SHOW/HIDE
-togglePassword.addEventListener("click", () => {
-    passwordInput.type =
-        passwordInput.type === "password" ? "text" : "password";
-});
-
-// ENABLE LOGIN BUTTON 
-function updateLoginButton() {
-    if (emailInput.value.trim() !== "" && passwordInput.value.trim() !== "") {
-        loginButton.classList.add("active");
-    } else {
-        loginButton.classList.remove("active");
-    }
+// Function to hide all sections except specified
+function showSection(sectionId) {
+    sections.forEach((section) => {
+        if (section.id === sectionId) {
+            section.style.display = "block";
+            section.classList.add("active-section");
+        } else {
+            section.style.display = "none";
+            section.classList.remove("active-section");
+        }
+    });
 }
 
-emailInput.addEventListener("input", updateLoginButton);
-passwordInput.addEventListener("input", updateLoginButton);
+// Initially show home, hide FAQ
+showSection("home-section");
+
+// Handle nav clicks
+navLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute("data-target");
+        // Show the clicked section, hide FAQ if open
+        showSection(targetId);
+        faqSection.style.display = "none";
+
+        // Remove active class from all, add to clicked
+        navLinks.forEach((l) => l.classList.remove("active"));
+        link.classList.add("active");
+    });
+});
+
+// FAQ toggle click: show/hide FAQ section, hide other sections
+faqToggle.addEventListener("click", () => {
+    if (faqSection.style.display === "none" || faqSection.style.display === "") {
+        faqSection.style.display = "block";
+        sections.forEach((sec) => {
+            if (sec !== faqSection) {
+                sec.style.display = "none";
+                sec.classList.remove("active-section");
+            }
+        });
+        navLinks.forEach((l) => l.classList.remove("active"));
+    } else {
+        faqSection.style.display = "none";
+        // Return to home on FAQ close
+        showSection("home-section");
+        navLinks.forEach((l) => l.classList.remove("active"));
+        document.querySelector('.nav-link[data-target="home-section"]').classList.add("active");
+    }
+});
+
+// FAQ accordion functionality
+const faqQuestions = document.querySelectorAll(".faq-question");
+faqQuestions.forEach((question) => {
+    question.addEventListener("click", () => {
+        const answer = question.nextElementSibling;
+        if (answer.style.display === "block") {
+            answer.style.display = "none";
+        } else {
+            // Close other answers
+            document.querySelectorAll(".faq-answer").forEach((a) => (a.style.display = "none"));
+            answer.style.display = "block";
+        }
+    });
+});
