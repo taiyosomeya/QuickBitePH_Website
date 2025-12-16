@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contacts | QuickBite PH</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+    function openModal() {
+        document.getElementById("contactModal").style.display = "flex";
+    }
+
+    function closeModal() {
+        document.getElementById("contactModal").style.display = "none";
+    }
+
+    let selectedRating = 0;
+
+    function openRatingModal() {
+        document.getElementById("ratingModal").style.display = "flex";
+    }
+
+    function closeRatingModal() {
+        document.getElementById("ratingModal").style.display = "none";
+    }
+
+    function rateStar(star) {
+        selectedRating = star;
+        const stars = document.querySelectorAll(".stars span");
+        stars.forEach((s, index) => {
+            s.classList.toggle("active", index < star);
+        });
+    }
+
+    function submitRating() {
+        alert("Thank you for rating us ⭐ " + selectedRating);
+        closeRatingModal();
+    }
+    </script>
+
+    <style>
+        /* CONTACT SECTION ONLY */
+        .contact-section {
+            background: #f6efdd;
+            padding: 50px 60px;
+        }
+
+        .contact-section h1 {
+            font-size: 34px;
+            font-weight: 800;
+            margin-bottom: 25px;
+        }
+
+        .contact-details {
+            max-width: 3500px;
+            background: linear-gradient(145deg, #fff7e6, #f2e6c9);
+            border-radius: 30px;
+            padding: 45px 55px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+        }
+
+        .contact-details h2 {
+            font-size: 26px;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .contact-details p {
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 12px;
+            color: #000;
+        }
+
+        /* ===== CONTACT EMAIL SUPER ANIMATION ===== */
+        .contact-email {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #ffe7bf; /* Updated from #ffebc8 */
+            padding: 14px 26px;
+            border-radius: 999px;
+            font-weight: 800;
+            color: #000;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Base shadow */
+            margin: 26px 0 30px;
+            cursor: pointer;
+            animation: emailFloat 3.2s ease-in-out infinite,
+                    emailGlow 2.8s ease-in-out infinite;
+            position: relative;
+            transition: all 0.3s ease; /* Ensure smooth transition */
+        }
+
+        /* ENVELOPE ICON ANIMATION / HOVER EFFECT */
+        .contact-email:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 18px 36px rgba(0,0,0,0.28);
+        }
+
+        /* CLICK FEEDBACK */
+        .contact-email:active {
+            transform: scale(0.96);
+        }
+
+        /* SHIMMER EFFECT */
+        .contact-email::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 999px;
+            background: linear-gradient(
+                120deg,
+                transparent,
+                rgba(255,255,255,0.45),
+                transparent
+            );
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .contact-email:hover::after {
+            opacity: 1;
+            animation: shimmerMove 1.2s ease forwards;
+        }
+
+
+        /* ===== BACK TO HOME ANIMATION ===== */
+        .back-home {
+            animation: backFadeSlide 0.8s ease forwards;
+        }
+
+        .back-home a {
+            display: inline-block;
+            font-weight: 700; /* Updated from 800 */
+            color: #000;
+            text-decoration: none;
+            position: relative;
+            padding-bottom: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .back-home a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background: #000;
+            transition: width 0.3s ease;
+        }
+
+        .back-home a:hover::after {
+            width: 100%;
+        }
+
+        /* HOVER – smooth slide + glow */
+        .back-home a:hover {
+            transform: translateX(-4px); /* Updated from -6px */
+            /* Removed redundant text-shadow */
+        }
+
+        /* CLICK EFFECT */
+        .back-home a:active {
+            transform: translateX(-2px) scale(0.95);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 5fr 6fr;
+            gap: 40px;
+            margin-top: 35px;
+        }
+
+
+        .contact-box {
+            background: #fff4dc;
+            border-radius: 22px;
+            padding: 30px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+        }
+
+        .contact-box h3 {
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .contact-box button {
+            padding: 10px 22px;
+            border-radius: 999px;
+            border: none;
+            background: #000;
+            color: #fff;
+            font-weight: 800;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-top: 10px;
+        }
+
+        /* FOOTER FIX – INLINE ONLY */
+        footer.footer {
+            margin-top: 0;
+            padding-top: 30px;
+            background-color: #fff4dc;
+            border-top: 3px solid #3b2a1a;
+        }
+
+        /* NAVBAR LINE – MATCH FOOTER (INLINE FIX) */
+        nav.navbar {
+            border-bottom: 1px solid #3b2a1a;
+            margin-bottom: 0;
+        }
+
+        .contact-box a {
+             word-break: break-all;
+        }
+
+        /* MODAL BACKDROP */
+        .contact-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.45);
+            z-index: 999;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease forwards;
+        }
+
+        /* MODAL CARD */
+        .modal-content {
+            background: linear-gradient(145deg, #fff7e6, #f3e4c4);
+            padding: 36px;
+            border-radius: 26px;
+            width: 340px;
+            text-align: center;
+            box-shadow: 0 20px 45px rgba(0,0,0,0.25);
+            transform: scale(0.85);
+            opacity: 0;
+            animation: popUp 0.35s ease forwards;
+        }
+
+        /* TITLE */
+        .modal-content h3 {
+            margin-bottom: 22px;
+            font-size: 20px;
+            font-weight: 800;
+            color: #000;
+        }
+
+        /* CONTACT LINKS */
+        .modal-content a {
+            display: block;
+            padding: 14px 18px;
+            margin-bottom: 12px;
+            border-radius: 16px;
+            background: #fff;
+            font-weight: 600;
+            color: #000;
+            text-decoration: none;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+            opacity: 0;
+            transform: translateY(10px);
+            animation: slideUp 0.4s ease forwards;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease !important; /* Combined modal link transitions */
+        }
+
+        /* STAGGER ANIMATION */
+        .modal-content a:nth-child(2) { animation-delay: 0.1s; }
+        .modal-content a:nth-child(3) { animation-delay: 0.2s; }
+        .modal-content a:nth-child(4) { animation-delay: 0.3s; }
+        .modal-content a:nth-child(5) { animation-delay: 0.4s; }
+
+        /* HOVER – SLIGHT FLOAT UP */
+        #contactModal .modal-content a:hover {
+            transform: translateY(-2px) !important;
+            box-shadow: 0 12px 24px rgba(0,0,0,0.28) !important;
+            background: #fff8ec !important;
+        }
+
+        /* CLICK – PRESS FEEDBACK */
+        #contactModal .modal-content a:active {
+            transform: translateY(-1px) scale(0.97) !important;
+        }
+
+        /* CLOSE BUTTON */
+        .close-modal {
+            margin-top: 18px;
+            padding: 10px 28px;
+            border-radius: 999px;
+            border: none;
+            background: #000;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .close-modal:hover {
+            background: #333;
+            transform: scale(1.05);
+        }
+
+        /* ===== CTA BUTTONS ANIMATION ===== */
+        .chat-btn,
+        .message-btn {
+            background: #000;
+            color: #fff;
+            border: none;
+            padding: 12px 26px;
+            border-radius: 999px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* HOVER EFFECT */
+        .chat-btn:hover,
+        .message-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.35);
+        }
+
+        /* CLICK EFFECT */
+        .chat-btn:active,
+        .message-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* SUBTLE SHINE EFFECT */
+        .chat-btn::after,
+        .message-btn::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                120deg,
+                transparent,
+                rgba(255, 255, 255, 0.3),
+                transparent
+            );
+            transition: all 0.6s ease;
+        }
+
+        .chat-btn:hover::after,
+        .message-btn:hover::after {
+            left: 100%;
+        }
+
+        /* ===== SOCIAL MEDIA BOX (Combined multiple social link styles) ===== */
+        .social-box {
+            background: #fff3d8;
+            border-radius: 22px;
+            padding: 30px;
+            box-shadow: 0 14px 30px rgba(0,0,0,0.12);
+            position: relative;
+            animation: socialFloat 4s ease-in-out infinite;
+        }
+
+        /* TITLE */
+        .social-box h3 {
+            margin-bottom: 18px;
+            font-weight: 800;
+            color: #000;
+        }
+
+        /* SOCIAL LINK BASE */
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            margin-bottom: 12px;
+            border-radius: 14px;
+            background: #fff;
+            color: #000;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+            transform: translateY(10px);
+            opacity: 0;
+            animation: slideIn 0.4s ease forwards;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition:
+                transform 0.25s ease, /* Combined transition duration */
+                box-shadow 0.25s ease,
+                background 0.25s ease;
+            will-change: transform;
+            backface-visibility: hidden;
+        }
+
+        /* STAGGER */
+        .social-link:nth-child(2) { animation-delay: 0.1s; }
+        .social-link:nth-child(3) { animation-delay: 0.2s; }
+        .social-link:nth-child(4) { animation-delay: 0.3s; }
+        .social-link:nth-child(5) { animation-delay: 0.4s; }
+
+        /* HOVER – LIFT + CONFIDENCE */
+        .social-link:hover {
+            transform: translateY(-5px) scale(1.03); /* Most aggressive lift */
+            box-shadow: 0 16px 32px rgba(0,0,0,0.28); /* Most aggressive shadow */
+            background: #fff8ec; /* Hover background */
+        }
+
+        /* ACTIVE – PRESS FEEDBACK */
+        .social-link:active {
+            animation: none;
+            transform: scale(0.96);
+        }
+
+        /* ICON ANIMATION ONLY */
+        .social-link span {
+            font-size: 18px;
+            transition: transform 0.25s ease; /* Most accurate icon transition */
+        }
+
+        .social-link:hover span {
+            transform: scale(1.35) rotate(-10deg); /* Most aggressive icon effect */
+        }
+
+        /* RIPPLE / SWEEP EFFECT */
+        .social-link::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 14px;
+            background: radial-gradient(
+                circle at center,
+                rgba(255,255,255,0.45),
+                transparent 60%
+            );
+            opacity: 0;
+            transform: scale(0.4);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-link:hover::after {
+            opacity: 1;
+            transform: scale(1.2);
+        }
+
+        /* ===== RIGHT SIDE VISUAL ===== */
+        .contact-visual {
+            background: linear-gradient(145deg, #fff7e6, #f3e4c4);
+            border-radius: 28px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+            animation: fadeSlide 0.8s ease forwards;
+        }
+
+        /* IMAGE */
+        .contact-visual img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 22px;
+            box-shadow: 0 10px 24px rgba(0,0,0,0.25);
+            animation: floatMascot 3s ease-in-out infinite;
+        }
+
+        /* TEXT */
+        .contact-visual h3 {
+            font-size: 22px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            color: #000;
+        }
+
+        .contact-visual p {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #000;
+        }
+
+        /* ===== STAR RATING ===== */
+        .stars {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            font-size: 28px;
+            margin-bottom: 16px;
+        }
+
+        .stars span {
+            cursor: pointer;
+            color: #ccc;
+            transition: transform 0.2s ease, color 0.2s ease;
+        }
+
+        .stars span:hover,
+        .stars span.active {
+            color: #f5a623;
+            transform: scale(1.2);
+        }
+
+        /* FEEDBACK BOX */
+        #ratingModal textarea {
+            width: 100%;
+            height: 80px;
+            border-radius: 14px;
+            border: none;
+            padding: 12px;
+            margin-bottom: 16px;
+            resize: none;
+            box-shadow: inset 0 4px 10px rgba(0,0,0,0.1);
+            font-family: inherit;
+        }
+    
+        /* ANIMATIONS */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes popUp {
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }    
+        }
+
+        /* FLOATING ANIMATION (Combined floatEmail into emailFloat) */
+        @keyframes emailFloat {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+            100% { transform: translateY(0); }
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+      
+        /* SHIMMER MOVE */
+        @keyframes shimmerMove {
+            from { background-position: -200%; }
+            to { background-position: 200%; }
+        }
+
+        /* GLOW PULSE */
+        @keyframes emailGlow {
+            0% {
+                box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            }
+            50% {
+                box-shadow: 0 16px 32px rgba(255,183,77,0.45);
+            }
+            100% {
+                box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            }
+        }
+
+        /* PAGE LOAD ANIMATION */
+        @keyframes backFadeSlide {
+            from {
+                opacity: 0;
+                transform: translateX(12px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        /* Added missing animations for completeness, assuming they are in a linked style.css or intended to be here */
+        @keyframes fadeSlide {
+            from { opacity: 0; transform: translateX(20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        @keyframes floatMascot {
+            0% { transform: translateY(0) rotate(1deg); }
+            50% { transform: translateY(-8px) rotate(-1deg); }
+            100% { transform: translateY(0) rotate(1deg); }
+        }
+
+        @keyframes socialFloat {
+            0% { transform: translate3d(0, 0, 0); }
+            50% { transform: translate3d(0, -5px, 0); }
+            100% { transform: translate3d(0, 0, 0); }
+        }
+
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="nav-left">
+        <div class="logo-circle">
+            <img src="logo.jpg" alt="QuickBite PH Logo">
+        </div>
+        <div class="brand">QuickBite PH</div>
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="#">Promotions</a></li>
+        <li><a href="contacts.html">Contacts</a></li>
+        <li><a href="#">About Us</a></li>
+    </ul>
+
+    <div class="nav-right">
+        <div class="search-box">
+            <input type="text" placeholder="Search">
+        </div>
+        <button class="login-btn">Login</button>
+        <div class="nav-icons">👤 🛒</div>
+        <span>FAQ</span>
+    </div>
+</nav>
+
+<div class="divider"></div>
+
+<section class="contact-section">
+
+    <div class="back-home" style="margin-bottom: 10px;">
+        <a href="index.html">&lt; Back to Home</a>
+    </div>
+
+    <h1>Contact Us</h1>
+
+    <div class="contact-details">
+
+    <div class="contact-box" style="margin-bottom: 30px;">
+        <h2>Contact Details</h2>
+
+        <p>
+            If you have concerns or feedback on your orders made directly from
+            <strong>QuickBite PH</strong>, please contact us through:
+        </p>
+
+        <div class="contact-email" onclick="openRatingModal()" style="cursor:pointer;">
+        ✉️ <strong>feedback@QuickBitePH.com.ph</strong>
+        </div>
+
+        <p>
+            By sending your feedback and information to
+            <strong>@QuickBitePH.com.ph</strong>, you agree to our
+            <strong>QuickBite PH Privacy Notice</strong>.
+        </p>
+    </div>
+
+        <div class="contact-visual">
+            <img src="logo.jpg" alt="QuickBite PH Mascot">
+
+            <h3>We’d love to hear from you!</h3>
+            <p>
+                Your feedback helps <strong>QuickBite PH</strong> serve you better —
+                fast, fresh, and made with care.
+            </p>
+
+    </div>
+
+
+        <div class="contact-grid">
+
+            <div class="contact-box">
+                <h3>Corporate Head Office</h3>
+
+                <p>📞 <strong>(+63) 912 345 6789</strong></p>
+                <p>
+                    📍 Manila, Crowne Bay Tower, 157 Roxas Blvd, Baclaran,
+                    Parañaque, 1702
+                </p>
+
+                <h3 style="margin-top:20px;">Customer Care</h3>
+                <p>
+                    Our agents are available daily from
+                    <strong>9:00 AM to 9:00 PM</strong>
+                </p>
+
+                <button class="chat-btn" onclick="openModal()">CHAT NOW</button>
+                <button class="message-btn" onclick="openModal()">SEND A MESSAGE</button>
+
+            </div>
+
+            <div class="social-box">
+                <h3>Social Media Links</h3>
+
+                <a class="social-link" href="https://www.facebook.com/Kpmm01/" target="_blank">
+                    <span>🔗</span> Kenneth PM
+                </a>
+
+                <a class="social-link" href="https://www.facebook.com/kennethclark.delacruz" target="_blank">
+                    <span>🔗</span> Kenneth Clark
+                </a>
+
+                <a class="social-link" href="https://www.facebook.com/elijahart0" target="_blank">
+                    <span>🔗</span> Elijah Art
+                </a>
+
+                <a class="social-link" href="https://www.facebook.com/hisoyakani" target="_blank">
+                    <span>🔗</span> Hisoyakani
+                </a>
+            </div>
+        </div>
+    </div>
+
+    </section>
+
+<div id="contactModal" class="contact-modal">
+    <div class="modal-content">
+        <h3>Select who you want to contact</h3>
+
+        <a href="https://www.facebook.com/Kpmm01/" target="_blank">👤 Kenneth PM</a>
+        <a href="https://www.facebook.com/kennethclark.delacruz" target="_blank">👤 Kenneth Clark</a>
+        <a href="https://www.facebook.com/elijahart0" target="_blank">👤 Elijah Art</a>
+        <a href="https://www.facebook.com/hisoyakani" target="_blank">👤 Hisoyakani</a>
+
+        <button class="close-modal" onclick="closeModal()">Close</button>
+    </div>
+</div>
+
+<div id="ratingModal" class="contact-modal">
+    <div class="modal-content">
+        <h3>Rate Your Experience</h3>
+
+        <div class="stars">
+            <span onclick="rateStar(1)">★</span>
+            <span onclick="rateStar(2)">★</span>
+            <span onclick="rateStar(3)">★</span>
+            <span onclick="rateStar(4)">★</span>
+            <span onclick="rateStar(5)">★</span>
+        </div>
+
+        <textarea placeholder="Leave a short feedback (optional)"></textarea>
+
+        <button class="chat-btn" onclick="submitRating()">Submit</button>
+        <button class="close-modal" onclick="closeRatingModal()">Close</button>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="footer-col">
+        <p>QuickBite PH</p>
+        <p>📍 Manila, Philippines</p>
+        <p>📧 support@quickbiteph.com</p>
+        <p>📞 (+63) 912 345 6789</p>
+
+        <div class="social-links">
+            <a href="#"><img src="image/facebook.png"></a>
+            <a href="#"><img src="image/instagram.png"></a>
+            <a href="#"><img src="image/twitter.png"></a>
+        </div>
+    </div>
+
+    <div class="footer-col">
+        <p>Home</p>
+        <p>About Us</p>
+        <p>Menu</p>
+        <p>Promotions</p>
+    </div>
+
+    <div class="footer-col">
+        <p>Contacts</p>
+        <p>My Accounts / Orders</p>
+        <p>Carts</p>
+        <p>FAQ</p>
+    </div>
+
+    <div class="footer-logo">
+        <img src="logo.jpg">
+    </div>
+</footer>
+
+</body>
+</html>
