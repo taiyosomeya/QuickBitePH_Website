@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FAQ | QuickBite PH</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* GLOBAL RESET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f6efdd; 
+        }
+
+        .logo-circle img {
+            border-radius: 50%;
+        }
+
+        /* --- NAVBAR STYLES --- */
+        nav.navbar {
+            background-color: #fff4dc; 
+            padding: 10px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid #000;
+            position: relative;
+            z-index: 1001; 
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 12px; 
+        }
+
+        .logo-circle {
+            width: 50px; 
+            height: 50px; 
+            border-radius: 50%;
+            border: 3px solid #000; 
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border: none; 
+        }
+
+        .brand {
+            font-size: 22px; 
+            font-weight: bold; 
+            color: #000;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: #000;
+            font-size: 16px;
+            font-weight: 600; 
+        }
+        
+        .nav-links li a:hover {
+            opacity: 0.7;
+        }
+
+        /* --- LOGIN & DROPDOWN STYLES --- */
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: #ffffff;
+            padding: 6px 15px;
+            border-radius: 20px; 
+            border: 2px solid #000; 
+        }
+
+        .search-box input {
+            border: none;
+            outline: none;
+            width: 120px;
+            font-size: 14px;
+            background: transparent;
+        }
+
+        .login-btn {
+            background: #ffffff; 
+            border: 2px solid #000; 
+            color: #000;
+            padding: 6px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 700;
+            transition: 0.2s;
+            box-shadow: 2px 2px 0px #000; 
+        }
+
+        .login-btn:hover {
+            background: #f0f0f0;
+            transform: translate(1px, 1px);
+            box-shadow: 1px 1px 0px #000;
+        }
+
+        .nav-icons {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        #userName {
+            font-weight: bold;
+            font-size: 15px;
+            margin-left: 5px;
+        }
+
+        /* Dropdown Menu */
+        .profile-dropdown {
+            position: absolute;
+            top: 40px;
+            left: -20px;
+            background: #fff;
+            border: 2px solid #000;
+            border-radius: 8px;
+            display: none;
+            min-width: 140px;
+            z-index: 2000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .profile-dropdown ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .profile-dropdown li {
+            padding: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 14px;
+            transition: background 0.2s;
+            color: black;
+            text-align: left;
+        }
+
+        .profile-dropdown li:hover {
+            background: #f7f1e1;
+        }
+        
+        /* --- FAQ CONTENT SECTION --- */
+        .faq-section {
+            padding: 50px 60px;
+            min-height: 80vh;
+        }
+
+        .faq-section h1 {
+            font-size: 34px;
+            font-weight: 800;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .faq-details {
+            max-width: 900px; 
+            margin: 0 auto; 
+            background: linear-gradient(145deg, #ffffff, #f2e6c9);
+            border-radius: 30px;
+            padding: 45px 55px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+            border: 3px solid #000; 
+            display: flex;
+            flex-direction: column; 
+            gap: 20px;
+        }
+
+        .faq-box {
+            background: #fff;
+            border-radius: 14px; 
+            padding: 12px 16px;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+            border: 2px solid #000; 
+            cursor: pointer;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+            position: relative;
+            display: block; 
+            color: #000;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .faq-box:hover {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 16px 32px rgba(0,0,0,0.28);
+            background: #fff8ec;
+        }
+
+        .faq-question {
+            display: flex;
+            align-items: center; 
+            gap: 12px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .faq-icon-span {
+            font-size: 18px;
+            transition: transform 0.25s ease;
+        }
+
+        .faq-box:hover .faq-icon-span {
+            transform: scale(1.35) rotate(-10deg);
+        }
+
+        .faq-answer {
+            display: none;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 2px solid #000; 
+            font-size: 15px;
+            line-height: 1.6;
+            color: #333;
+            padding-left: 30px;
+            font-weight: normal;
+        }
+
+        .toggle-state {
+            margin-left: auto; 
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        .back-home {
+            margin-bottom: 10px;
+        }
+        
+        .back-home a {
+            display: inline-block;
+            font-weight: 700;
+            color: #000;
+            text-decoration: none;
+            position: relative;
+            padding-bottom: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .back-home a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background: #000;
+            transition: width 0.3s ease;
+        }
+
+        .back-home a:hover::after {
+            width: 100%;
+        }
+
+        .back-home a:hover {
+            transform: translateX(-4px);
+        }
+
+        /* =========================
+           LOGIN MODAL STYLES
+        ========================= */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.55);
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+        }
+
+        .modal-content {
+            width: 340px;
+            background: white;
+            padding: 35px;
+            border-radius: 18px;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            text-align: left;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 12px;
+            right: 15px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .modal-logo { text-align: center; }
+        .modal-logo img { width: 65px; margin-bottom: 10px; border-radius: 0; border: none;}
+        
+        .modal-content h2 { text-align: center; font-size: 24px; margin-bottom: 5px; }
+
+        .login-form input {
+            width: 100%;
+            padding: 12px;
+            margin-top: 4px;
+            border: 1px solid #ddd;
+            border-radius: 7px;
+            font-size: 14px;
+        }
+
+        .error-msg {
+            display: none;
+            text-align: left;
+            color: red;
+            font-size: 11px;
+            margin-top: 4px;
+        }
+
+        .password-box { position: relative; }
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 14px;
+            cursor: pointer;
+        }
+
+        .login-btn-modal {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: none;
+            background: #e3e3e3;
+            color: #8a8a8a;
+            font-weight: bold;
+            cursor: not-allowed;
+            margin-bottom: 15px;
+            margin-top: 15px;
+            box-shadow: none; /* Reset main button shadow */
+        }
+
+        .login-btn-modal.active {
+            background: #000 !important;
+            color: #fff !important;
+            cursor: pointer !important;
+        }
+
+        .facebook-btn {
+            width: 100%;
+            padding: 12px;
+            background: #1877F2;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .guest-btn {
+            width: 100%;
+            padding: 12px;
+            background: #e0e0e0;
+            border: 1px solid #b5b5b5;
+            border-radius: 8px;
+            cursor: pointer;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .divider-or {
+            margin: 18px 0;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .subtitle, .disclaimer, .signup-link, .forgot {
+            text-align: center;
+            display: block;
+        }
+        
+        .subtitle { color: #666; font-size: 14px; margin-bottom: 20px;}
+        .forgot { font-size: 12px; text-decoration: none; color: #000; margin-top: 5px; text-align: right;}
+        .disclaimer { font-size: 11px; color: #666; margin-top: 15px; line-height: 1.4;}
+        .signup-link { font-weight: bold; margin-top: 10px; cursor: pointer;}
+
+
+        /* =========================
+           UPDATED FOOTER STYLES
+        ========================= */
+        .footer {
+            margin-top: 40px;
+            padding: 50px 60px;
+            background: #fff4dc;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            border-top: 3px solid #3b2a1a;
+        }
+
+        .footer-col {
+            min-width: 220px;
+            line-height: 1.8;
+        }
+
+        .footer-col a,
+        .footer-col p {
+            font-size: 16px;
+            color: #000;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .social-links img {
+            width: 36px;
+            height: 36px;
+        }
+
+        .footer-logo {
+            width: 125px;
+            height: 125px;
+            border-radius: 50%;
+            border: 2px solid black;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .footer-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="nav-left">
+        <div class="logo-circle">
+            <img src="assets/images/Logo/logo.jpg" alt="QuickBite PH Logo">
+        </div>
+        <div class="brand">QuickBite PH</div>
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="Promotions.html">Promotions</a></li>
+        <li><a href="contacts.html">Contacts</a></li>
+        <li><a href="about_us.html">About Us</a></li>
+    </ul>
+
+    <div class="nav-right">
+        <div class="search-box">
+            <input type="text" placeholder="Search">
+        </div>
+        
+        <button class="login-btn">Login</button>
+        
+        <div class="nav-icons">
+            👤 <span id="userName">Guest</span>
+            <div class="profile-dropdown" id="profileDropdown">
+                <ul>
+                    <li id="myProfile">My Profile</li>
+                    <li id="myOrders">Orders</li>
+                    <li id="logoutBtn">Sign Out</li>
+                </ul>
+            </div>
+        </div>
+        <a href="Faq.html" style="text-decoration: none; color: black; font-weight: bold; font-size: 15px; margin-left: 10px;">FAQ</a>
+    </div>
+</nav>
+
+<section class="faq-section">
+    
+    <div class="back-home">
+        <a href="index.html">&lt; Back to Home</a>
+    </div>
+
+    <h1>Frequently Asked Questions</h1>
+    
+    <div class="faq-details">
+        
+        <div class="faq-box" onclick="toggleFaq(this)">
+            <div class="faq-question">
+                <span class="faq-icon-span">📦</span> 
+                <span>Ordering & Delivery</span>
+                <span class="toggle-state">+</span> 
+            </div>
+            <div class="faq-answer">
+                <p><strong>How do I order?</strong> Browse the menu, add items to your cart, and proceed to checkout.</p>
+                <p style="margin-top:10px;"><strong>How long is delivery?</strong> Usually 20–45 mins depending on your location.</p>
+                <p style="margin-top:10px;"><strong>Delivery coverage?</strong> Metro Manila & nearby areas.</p>
+            </div>
+        </div>
+
+        <div class="faq-box" onclick="toggleFaq(this)">
+            <div class="faq-question">
+                 <span class="faq-icon-span">🔐</span> 
+                <span>Accounts & Login Issues</span>
+                <span class="toggle-state">+</span>
+            </div>
+            <div class="faq-answer">
+                <p><strong>Can't log in?</strong> Ensure your email/number is correct.</p>
+                <p style="margin-top:10px;"><strong>Password Reset?</strong> Use “Forgot Password” on the login page.</p>
+            </div>
+        </div>
+
+        <div class="faq-box" onclick="toggleFaq(this)">
+            <div class="faq-question">
+                 <span class="faq-icon-span">💳</span> 
+                <span>Payment Options</span>
+                <span class="toggle-state">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>We accept GCash, Cash on Delivery (COD), and major Credit/Debit Cards.</p>
+            </div>
+        </div>
+
+        <div class="faq-box" onclick="toggleFaq(this)">
+            <div class="faq-question">
+                 <span class="faq-icon-span">↩️</span> 
+                <span>Refunds & Cancellations</span>
+                <span class="toggle-state">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>Orders can be cancelled within 5 minutes of placing them. Refunds are processed for missing or incorrect items immediately upon verification.</p>
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="footer-col">
+        <p>QuickBite PH</p>
+        <p>📍 Manila, Philippines</p>
+        <p>📧 support@quickbiteph.com</p>
+        <p>📞 (+63) 912 345 6789</p>
+        
+        <div class="social-links">
+            <a href="https://www.facebook.com/elijahart0" target="_blank">
+                <img src="assets/images/facebook.png" alt="Facebook" onerror="this.src='image/facebook.png'">
+            </a>
+            <a href="https://www.instagram.com/elijah_art0724/" target="_blank">
+                <img src="assets/images/instagram.png" alt="Instagram" onerror="this.src='image/instagram.png'">
+            </a>
+            <a href="https://x.com/elijah_hart0" target="_blank">
+                <img src="assets/images/twitter.png" alt="Twitter" onerror="this.src='image/twitter.png'">
+            </a>
+        </div>
+    </div>
+
+    <div class="footer-col">
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="promotions.html">Promotions</a>
+        <a href="about_us.html">About Us</a>
+    </div>
+
+    <div class="footer-col">
+        <a href="contacts.html">Contacts</a>
+        <a href="Faq.html">FAQ</a>
+    </div>
+
+    <div class="footer-logo">
+        <img src="assets/images/Logo/logo.jpg" alt="QuickBite PH Logo">
+    </div>
+</footer>
+
+<div id="loginModal" class="modal">
+    <div class="modal-content">
+
+        <span class="close-btn">&times;</span>
+
+        <div class="modal-logo">
+            <img src="assets/images/Logo/logo.jpg" alt="QuickBite PH Logo">
+        </div>
+
+        <h2>Welcome Back!</h2>
+        <p class="subtitle">Sign in to your account.</p>
+
+        <form class="login-form">
+
+            <div class="input-group">
+                <input type="text" id="emailInput" placeholder="Email">
+                <span class="error-msg" id="emailError"> This field cannot be blank.</span>
+            </div>
+
+            <div class="input-group password-box">
+                <input type="password" id="passwordInput" placeholder="Password">
+                <span class="toggle-password">👁️</span>
+            </div>
+
+            <a href="#" class="forgot">Forgot your Password?</a>
+
+            <button type="button" class="login-btn-modal">Log In</button>
+
+            <div class="divider-or"><span>OR</span></div>
+
+            <button type="button" class="facebook-btn">Log in with Facebook</button>
+
+            <button type="button" class="guest-btn" id="guestBtn">Continue as Guest</button>
+
+        </form>
+
+        <p class="disclaimer">
+            By continuing, you agree to our updated 
+            <a href="#">Terms & Conditions</a> and 
+            <a href="#">Privacy Policy</a>.
+        </p>
+        <p class="signup-link">Sign Up Here!</p>
+
+    </div>
+</div>
+
+<script>
+    /* === FAQ TOGGLE FUNCTION === */
+    function toggleFaq(box) {
+        const answer = box.querySelector('.faq-answer');
+        const icon = box.querySelector('.toggle-state');
+        
+        if (answer.style.display === 'block') {
+            answer.style.display = 'none';
+            icon.innerText = '+';
+        } else {
+            document.querySelectorAll('.faq-answer').forEach(a => a.style.display = 'none');
+            document.querySelectorAll('.toggle-state').forEach(i => i.innerText = '+');
+
+            answer.style.display = 'block';
+            icon.innerText = '-';
+        }
+    }
+
+    /* === LOGIN SYSTEM === */
+    
+    /* SEARCH BOX */
+    const searchBox = document.querySelector(".search-box input");
+    if(searchBox){
+        searchBox.addEventListener("focus", () => searchBox.style.background = "#fff");
+        searchBox.addEventListener("blur", () => searchBox.style.background = "transparent");
+    }
+
+    /* ELEMENTS */
+    const loginBtnNavbar = document.querySelector(".login-btn");
+    const loginModal = document.getElementById("loginModal");
+    const closeBtn = document.querySelector(".close-btn");
+
+    const emailInput = document.getElementById("emailInput");
+    const emailError = document.getElementById("emailError");
+    const passwordInput = document.getElementById("passwordInput");
+    const togglePassword = document.querySelector(".toggle-password");
+
+    const loginButton = document.querySelector(".login-btn-modal");
+    const userNameDisplay = document.getElementById("userName");
+    const guestBtn = document.getElementById("guestBtn");
+
+    const profileDropdown = document.getElementById("profileDropdown");
+    const logoutBtn = document.getElementById("logoutBtn");
+    const userNameSpan = document.getElementById("userName");
+    const myProfile = document.getElementById("myProfile");
+    const myOrders = document.getElementById("myOrders");
+
+    /* 🔥 RESET LOGIN FORM */
+    function resetLoginForm() {
+        emailInput.value = "";
+        passwordInput.value = "";
+        emailError.style.display = "none";
+        loginButton.classList.remove("active");
+    }
+
+    /* OPEN LOGIN MODAL */
+    if(loginBtnNavbar) {
+        loginBtnNavbar.addEventListener("click", () => {
+            resetLoginForm(); 
+            loginModal.style.display = "flex";
+        });
+    }
+
+    /* CLOSE LOGIN MODAL */
+    if(closeBtn) {
+        closeBtn.addEventListener("click", () => {
+            resetLoginForm(); 
+            loginModal.style.display = "none";
+        });
+    }
+
+    window.addEventListener("click", (e) => {
+        if (e.target === loginModal) {
+            resetLoginForm(); 
+            loginModal.style.display = "none";
+        }
+    });
+
+    /* EMAIL VALIDATION */
+    if(emailInput) {
+        emailInput.addEventListener("blur", () => {
+            emailError.style.display = emailInput.value.trim() === "" ? "block" : "none";
+        });
+        emailInput.addEventListener("input", updateLoginButton);
+    }
+
+    /* TOGGLE PASSWORD */
+    if(togglePassword) {
+        togglePassword.addEventListener("click", () => {
+            passwordInput.type =
+                passwordInput.type === "password" ? "text" : "password";
+        });
+    }
+
+    /* ENABLE / DISABLE LOGIN BUTTON */
+    function updateLoginButton() {
+        if (emailInput.value.trim() && passwordInput.value.trim()) {
+            loginButton.classList.add("active");
+        } else {
+            loginButton.classList.remove("active");
+        }
+    }
+    
+    if(passwordInput) {
+        passwordInput.addEventListener("input", updateLoginButton);
+    }
+
+    /* UPDATE NAVBAR */
+    function updateNavbar(user) {
+        if (!user || user.role === "guest") {
+            userNameDisplay.textContent = "Guest";
+            loginBtnNavbar.style.display = "inline-block";
+        } else {
+            userNameDisplay.textContent = user.name;
+            loginBtnNavbar.style.display = "none";
+        }
+    }
+
+    /* LOGIN */
+    if(loginButton) {
+        loginButton.addEventListener("click", () => {
+            const email = emailInput.value.trim();
+            const password = passwordInput.value.trim();
+
+            if (!email || !password) {
+                emailError.style.display = "block";
+                return;
+            }
+
+            let name = email.split("@")[0];
+            name = name.charAt(0).toUpperCase() + name.slice(1);
+
+            const user = { name, role: "user" };
+            localStorage.setItem("quickbiteUser", JSON.stringify(user));
+
+            updateNavbar(user);
+            resetLoginForm(); 
+            loginModal.style.display = "none";
+        });
+    }
+
+    /* CONTINUE AS GUEST */
+    if(guestBtn) {
+        guestBtn.addEventListener("click", () => {
+            const guestUser = { name: "Guest", role: "guest" };
+            localStorage.setItem("quickbiteUser", JSON.stringify(guestUser));
+
+            updateNavbar(guestUser);
+            resetLoginForm(); 
+            loginModal.style.display = "none";
+        });
+    }
+
+    /* LOAD SAVED USER */
+    const savedUser = JSON.parse(localStorage.getItem("quickbiteUser"));
+    updateNavbar(savedUser);
+
+    /* PROFILE DROPDOWN TOGGLE */
+    if(userNameSpan) {
+        userNameSpan.addEventListener("click", (e) => {
+            e.stopPropagation(); 
+            const currentUser = JSON.parse(localStorage.getItem("quickbiteUser"));
+            
+            if (currentUser && currentUser.role === "user") {
+                profileDropdown.style.display =
+                    profileDropdown.style.display === "block" ? "none" : "block";
+            }
+        });
+    }
+
+    // Close dropdown if clicked outside
+    window.addEventListener("click", (e) => {
+        if (profileDropdown && userNameSpan && !userNameSpan.contains(e.target) && !profileDropdown.contains(e.target)) {
+            profileDropdown.style.display = "none";
+        }
+    });
+
+    /* LOGOUT */
+    if(logoutBtn) {
+        logoutBtn.addEventListener("click", () => {
+            localStorage.removeItem("quickbiteUser");
+            updateNavbar(null);
+            resetLoginForm(); 
+            profileDropdown.style.display = "none";
+        });
+    }
+
+    /* DUMMY LINKS */
+    if(myProfile) {
+        myProfile.addEventListener("click", () => {
+            alert("My Profile clicked!");
+            profileDropdown.style.display = "none";
+        });
+    }
+
+    if(myOrders) {
+        myOrders.addEventListener("click", () => {
+            alert("Orders clicked!");
+            profileDropdown.style.display = "none";
+        });
+    }
+</script>
+
+</body>
+</html>
