@@ -3,128 +3,806 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QuickBite PH</title>
+    <title>QuickBite PH - Menu</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-</head>
-<body>
 
-    <!-- NAVBAR -->
-    <nav class="navbar">
-        <div class="nav-left">
-            <div class="logo-circle">
-                <img src="logo.jpg" alt="QuickBite PH Logo">
-            </div>
-            <div class="brand">QuickBite PH</div>
-        </div>
+    <style>
+ /* =========================
+   GLOBAL STYLES
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+/* =========================
+   PAGE BACKGROUND
+========================= */
+.menu-page { background: #fff4dc; }
+.menu-page .hero { background: #fff4dc; }
+.menu-page .hero-text { width: 55%; }
 
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="menu.html">Menu</a></li>
-            <li><a href="promotion.html">Promotions</a></li>
-            <li><a href="contacts">Contacts</a></li>
-            <li><a href="about_us">About Us</a></li>
-        </ul>
+/* =========================
+   MENU LAYOUT
+========================= */
+.menu-wrap {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 18px;
+    background: #fff;
+    border-radius: 6px;
+    border: 2px solid #e6e6e6;
+}
 
-        <div class="nav-right">
-            <div class="search-box">
-                <input type="text" placeholder="Search">
-            </div>
-            <button class="login-btn">Login</button>
-            <div class="nav-icons">👤 🛒</div>
-            <span>FAQ</span>
-        </div>
-    </nav>
+.menu-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 0 18px;
+}
 
-    <!-- HERO -->
-    <section class="hero">
-        <div class="hero-text">
-            <h1>Welcome To QuickBite PH!</h1>
-            <p>Enjoy freshly prepared Filipino meals 
-            <br>made with love, delivered fast, hot, and 
-            <br>straight from our kitchen to your door!</p>
-            <button class="order-now">Order Now</button>
-        </div>
-        <div class="hero-image">Background Image</div>
-    </section>
+/* =========================
+   CATEGORY TABS
+========================= */
 
-    <!-- MENU -->
-    <div class="divider"></div>
-    <div class="menu-header">
-        <h2><br>Our Menu</h2>
-    </div>
-    <div class="menu-subheader">
-        <h3>Simple. Flavorful. Delicious.</h3>
-    </div>
+.tab-btn {
+    border: 1px solid black;
+    background: #fff;
+    padding: 6px 12px;
+    border-radius: 18px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    color: #000;
+}
 
-    <div class="menu-grid">
-        <div class="menu-item">
-            <div class="menu-box"></div>
-            <button class="category-btn">Pasta & Noodles</button>
-        </div>
-        <div class="menu-item">
-            <div class="menu-box"></div>
-            <button class="category-btn">Wraps & Sandwiches</button>
-        </div>
-        <div class="menu-item">
-            <div class="menu-box"></div>
-            <button class="category-btn">Vegetable & Fruits</button>
-        </div>
-        <div class="menu-item">
-            <div class="menu-box"></div>
-            <button class="category-btn">Desserts</button>
-        </div>
-    </div>
+/* Hover effect */
+.tab-btn:hover {
+    background: #111;
+    color: #fff;
+    transform: scale(1.05);
+}
 
-    <p class="filipino-text">
-        <br>100% PROUDLY FILIPINO — MADE WITH LOVE, SERVED HOT, AND DELICIOUS!</p>
+/* Clicked / Active tab */
+.tab-btn.active {
+    background: #111;
+    color: #fff;
+}
 
-    <!-- REWARDS SECTION -->
-    <section class="rewards-section">
-        <div class="rewards-pill small">
-            <div class="rewards-left">
-                <div class="rewards-title">QuickBite PH <br>&nbsp;Rewards</div>
-            </div>
-            <div class="rewards-middle">
-                <div class="image-box">
-                    <img src="logo.jpg" alt="Rewards">
-                </div>
-            </div>
-            <div class="rewards-right">
-                <p class="rewards-text">
-                    Join QuickBite Rewards to earn points with every purchase! Redeem your points for meals, treats, and exclusive perks.
-                </p>
-                <div class="reward-links">
-                    <a href="#">Sign Up</a>
-                    <a href="#">Login</a>
-                </div>
-            </div>
-        </div>
-    </section>
+/* Keep active tab black even when hovered */
+.tab-btn.active:hover {
+    background: #111;
+    color: #fff;
+    transform: scale(1.05);
+}
 
-    <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-col">
-      <p>QuickBite PH</p>
-      <p>📍 Manila, Philippines</p>
-      <p>📧 support@quickbiteph.com</p>
-      <p>📞 (+63) 912 345 6789</p>
-    </div>
+
+
+
+/* =========================
+   PRODUCT GRID
+========================= */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 18px;
+    padding: 18px;
+    max-width: 1100px; 
+    margin: auto;
+    perspective: 1200px;
+}
+
+/* =========================
+   MENU CARD
+========================= */
+.card {
+    background: #fff;
+    border: 2px solid black;
+    border-radius: 8px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    min-height: 330px;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    position: relative;
+}
+
+
+.card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+}
+
+.img-wrapper {
+    height: 220px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.45s ease, filter 0.45s ease;
+}
+
+.card:hover .img-wrapper img {
+    transform: scale(1.1);
+    filter: saturate(1.1) contrast(1.05);
+}
+
+/* =========================
+   PRICE BADGE (TOP OF CARD)
+========================= */
+.action-left {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    background: #111;
+    color: #fff;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 6px 10px;
+
+    border-radius: 6px;
+    box-shadow: 2px 2px 0 #000;
+    z-index: 3;
+}
+
+/* =========================
+   PAGINATION
+========================= */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    padding: 20px;
+}
+
+.page-btn {
+    min-width: 36px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: 1px solid #111;
+    background: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.page-btn.active { background: #111; color: #fff; }
+
+/* =========================
+   CARD BUTTONS
+========================= */
+.btn {
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn.primary {
+    padding: 10px 18px;
+    background: linear-gradient(135deg, #111, #333);
+    color: #fff;
+    border-radius: 20px 6px 20px 6px;
+}
+
+.btn.fav-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid #111;
+}
+
+/* =========================
+   CARD ACTIONS SPACING
+========================= */
+.card-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* price on left, buttons on right */
+    margin-top: auto; /* pushes buttons to bottom of card */
+    padding-top: 10px;
+}
+
+.action-left {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.action-right {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* SPACE BETWEEN ORDER NOW & FAVORITE */
+}
+.card-actions {
+    display: flex;
+    justify-content: flex-end; /* buttons only */
+    margin-top: auto;
+}
+
+
+
+/* =========================
+   FOOTER 
+========================= */
+
+
+.footer-col { min-width: 200px; line-height: 1.8; margin-bottom: 20px;}
+.footer-col a, .footer-col p {
+    font-size: 16px;
+    color: #000;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.social-links { display: flex; gap: 15px; margin-top: 10px; }
+.social-links img { width: 36px; height: 36px; }
+
+.footer-logo {
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    border: 2px solid black;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footer-logo img { width: 100%; height: 100%; object-fit: cover; }
+
+/* =========================
+   LOGIN & NAVBAR STYLES
+========================= */
+.nav-icons {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.profile-dropdown {
+    position: absolute;
+    top: 35px;
+    left: -20px;
+    background: #fff;
+    border: 2px solid #000;
+    border-radius: 8px;
+    display: none;
+    min-width: 140px;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.profile-dropdown ul { list-style: none; padding: 0; margin: 0; }
+.profile-dropdown li {
+    padding: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    transition: background 0.2s;
+    color: black;
+}
+.profile-dropdown li:hover { background: #f7f1e1; }
+
+#userName {
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+/* MODAL STYLES */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.55);
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+.modal-content {
+    width: 340px;
+    background: white;
+    padding: 35px;
+    border-radius: 18px;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    text-align: center; /* Centered content like original */
+}
+
+.close-btn {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal-logo { text-align: center; }
+.modal-logo img { width: 65px; margin-bottom: 10px; }
+
+.login-form input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 4px;
+    border: 1px solid #ddd;
+    border-radius: 7px;
+    font-size: 14px;
+    text-align: left;
+}
+
+.error-msg { display: none; text-align: left; color: red; font-size: 11px; margin-top: 4px; }
+.password-box { position: relative; }
+.toggle-password { position: absolute; right: 10px; top: 14px; cursor: pointer; }
+
+        
+.login-btn {
+     background: #ffffff; 
+     border: 2px solid #000; 
+     color: #000;
+     padding: 6px 20px;
+     border-radius: 20px;
+     cursor: pointer;
+     font-size: 14px;
+     font-weight: 700;
+     transition: 0.2s;
+     box-shadow: 2px 2px 0px #000; 
+}
+
+.login-btn:hover {
+    background: #f0f0f0;
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px 0px #000;
+}
+
+.facebook-btn { width: 100%; padding: 12px; background: #1877F2; color: #fff; border: none; border-radius: 8px; margin-bottom: 12px; cursor: pointer; font-weight: bold; }
+.guest-btn { width: 100%; padding: 12px; background: #e0e0e0; border: 1px solid #b5b5b5; border-radius: 8px; cursor: pointer; color: #333; font-weight: bold; }
+
+/* Missing Disclaimer & Signup Styles */
+.disclaimer { margin-top: 15px; font-size: 13px; color: #666; line-height: 1.4; }
+.disclaimer a { color: black; font-weight: bold; text-decoration: underline; }
+.signup-link { margin-top: 10px; font-size: 14px; color: #0066ff; cursor: pointer; text-decoration: underline; font-weight: bold; }
+.divider-or { margin: 15px 0; font-weight: bold; color: #333; }
+.forgot { display: block; margin: 10px 0; font-size: 13px; color: #0066ff; cursor: pointer; }
+
+/* NAV STYLES COPIED TO FIX ALIGNMENT */
+.navbar {
+    width: 100%;
+    background: #fff4dc;
+    padding: 5px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #000;
+}
+.nav-left { display: flex; align-items: center; gap: 10px; }
+.logo-circle { width: 55px; height: 55px; border-radius: 50%; border: 2px solid black; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.logo-circle img { width: 100%; height: 100%; object-fit: cover; }
+.brand { font-size: 22px; font-weight: bold; }
+.nav-links { list-style: none; display: flex; align-items: center; gap: 30px; }
+.nav-links li a { text-decoration: none; color: black; font-size: 16px; font-weight: 600; padding: 10px 15px; transition: 0.2s ease; }
+.nav-right { display: flex; align-items: center; gap: 10px; }
+.search-box { display: flex; align-items: center; background: #ffffff; padding: 4px 14px; border-radius: 999px; border: 2px solid #000; }
+.search-box input { border: none; outline: none; width: 150px; font-size: 14px; }
+.login-btn { background: white; border: 2px solid #000; border-radius: 999px; padding: 5px 18px; font-size: 14px; font-weight: bold; cursor: pointer; transition: 0.2s ease; }
+.login-btn:hover { background: #f7f1e1; }
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    /* ------------------------- UI STATE ------------------------- */
+    const primaryCategories = [ "All", "Rice Bowls", "Pasta & Noodles", "Wraps & Sandwiches", "Vegetables & Fruits", "Drinks & Refreshers", "Desserts" ];
+
+    let state = {
+        currentCategory: "All",
+        currentPage: 1,
+        perPage: 8,
+        search: "",
+        sort: "default"
+    };
+
+    /* ------------------------- DOM ELEMENTS ------------------------- */
+    const tabsEl = document.getElementById("category-tabs");
+    const gridEl = document.getElementById("product-grid");
+    const paginationEl = document.getElementById("pagination");
+    const searchInput = document.getElementById("global-search");
+    const sortSelect = document.getElementById("sort-select");
+
+    /* ------------------------- LOGIN LOGIC ------------------------- */
+    const loginBtnNavbar = document.querySelector(".login-btn");
+    const loginModal = document.getElementById("loginModal");
+    const closeBtn = document.querySelector(".close-btn");
+    const emailInput = document.getElementById("emailInput");
+    const passwordInput = document.getElementById("passwordInput");
+    const loginButton = document.querySelector(".login-btn-modal");
+    const userNameDisplay = document.getElementById("userName");
+    const guestBtn = document.getElementById("guestBtn");
+    const profileDropdown = document.getElementById("profileDropdown");
+    const logoutBtn = document.getElementById("logoutBtn");
+    const navIcons = document.querySelector(".nav-icons");
+
+    // Helper: Update Navbar based on user
+    function updateNavbar(user) {
+        if (!user || user.role === "guest") {
+            userNameDisplay.textContent = "Guest";
+            loginBtnNavbar.style.display = "inline-block";
+        } else {
+            userNameDisplay.textContent = user.name;
+            loginBtnNavbar.style.display = "none";
+        }
+    }
+
+    // 1. OPEN MODAL
+    if(loginBtnNavbar) {
+        loginBtnNavbar.addEventListener("click", () => {
+            emailInput.value = ""; passwordInput.value = "";
+            loginModal.style.display = "flex";
+        });
+        
+        closeBtn.addEventListener("click", () => loginModal.style.display = "none");
+        window.addEventListener("click", (e) => { if (e.target === loginModal) loginModal.style.display = "none"; });
+        
+        document.querySelector(".toggle-password").addEventListener("click", () => {
+            passwordInput.type = passwordInput.type === "password" ? "text" : "password";
+        });
+    }
+
+    // 2. VALIDATE LOGIN FORM
+    const updateLoginState = () => {
+        if (emailInput.value.trim() && passwordInput.value.trim()) loginButton.classList.add("active");
+        else loginButton.classList.remove("active");
+    };
+    emailInput.addEventListener("input", updateLoginState);
+    passwordInput.addEventListener("input", updateLoginState);
+
+    // 3. LOGIN ACTION
+    loginButton.addEventListener("click", () => {
+        if (loginButton.classList.contains("active")) {
+            const name = emailInput.value.split("@")[0];
+            const user = { name: name.charAt(0).toUpperCase() + name.slice(1), role: "user" };
+            localStorage.setItem("quickbiteUser", JSON.stringify(user));
+            updateNavbar(user);
+            loginModal.style.display = "none";
+        }
+    });
+
+    // 4. GUEST ACTION
+    guestBtn.addEventListener("click", () => {
+        const user = { name: "Guest", role: "guest" };
+        localStorage.setItem("quickbiteUser", JSON.stringify(user));
+        updateNavbar(user);
+        loginModal.style.display = "none";
+    });
+
+    // 5. DROPDOWN TOGGLE (Fixed: Click anywhere on icon/name)
+    if(navIcons) {
+        navIcons.addEventListener("click", (e) => {
+            // Prevent toggling if clicking inside the dropdown menu itself
+            if(e.target.closest(".profile-dropdown")) return;
+            
+            const user = JSON.parse(localStorage.getItem("quickbiteUser"));
+            if (user && user.role === "user") {
+                profileDropdown.style.display = profileDropdown.style.display === "block" ? "none" : "block";
+            }
+        });
+    }
+
+    // 6. LOGOUT ACTION
+    if(logoutBtn) {
+        logoutBtn.addEventListener("click", () => {
+            localStorage.removeItem("quickbiteUser");
+            updateNavbar(null);
+            profileDropdown.style.display = "none";
+        });
+    }
+
+    // Initial Load
+    updateNavbar(JSON.parse(localStorage.getItem("quickbiteUser")));
+
+
+    /* ------------------------- HELPERS ------------------------- */
+    const formatPrice = price => `₱${price.toFixed(2)}`;
+
+    /* ------------------------- TABS ------------------------- */
+    function renderTabs() {
+        if(!tabsEl) return;
+        tabsEl.innerHTML = "";
+        primaryCategories.forEach(cat => {
+            const btn = document.createElement("button");
+            btn.className = "tab-btn" + (state.currentCategory === cat ? " active" : "");
+            btn.textContent = cat;
+            btn.onclick = () => { state.currentCategory = cat; state.currentPage = 1; render(); };
+            tabsEl.appendChild(btn);
+        });
+    }
+
+    /* ------------------------- FILTERING ------------------------- */
+    function getFilteredProducts() {
+        let list = (typeof products !== 'undefined') ? [...products] : [];
+        if (state.currentCategory !== "All") {
+            list = list.filter(p => p.primaryCategory === state.currentCategory);
+        }
+        if (state.search.trim()) {
+            const q = state.search.toLowerCase();
+            list = list.filter(p => p.title.toLowerCase().includes(q) || p.tags.some(t => t.toLowerCase().includes(q)));
+        }
+        return list;
+    }
+
+    /* ------------------------- RENDER ------------------------- */
+    function renderProducts() {
+        if(!gridEl) return;
+        gridEl.innerHTML = "";
+        const filtered = getFilteredProducts();
+        const start = (state.currentPage - 1) * state.perPage;
+        const pageItems = filtered.slice(start, start + state.perPage);
+
+        pageItems.forEach(p => {
+            const card = document.createElement("article");
+            card.className = "card";
+            if (p.badge) {
+                const badge = document.createElement("div");
+                badge.className = "badge"; badge.textContent = p.badge; card.appendChild(badge);
+            }
+            const imgWrap = document.createElement("div");
+            imgWrap.className = "img-wrapper";
+            const img = document.createElement("img");
+            img.src = p.image; img.alt = p.title; img.onerror = () => img.src = "assets/images/menu/placeholder.jpg";
+            imgWrap.appendChild(img); card.appendChild(imgWrap);
+
+            const title = document.createElement("h4"); title.textContent = p.title; card.appendChild(title);
+
+            const meta = document.createElement("div"); meta.className = "meta";
+            meta.innerHTML = `<span class="material-icons">schedule</span> ${p.time} min • ${p.tags.join(", ")}`;
+            card.appendChild(meta);
+
+            const actions = document.createElement("div"); actions.className = "card-actions";
+            const left = document.createElement("div"); left.className = "action-left"; left.textContent = formatPrice(p.price);
+            const right = document.createElement("div"); right.className = "action-right";
+            
+            const orderBtn = document.createElement("button"); orderBtn.className = "btn primary"; orderBtn.textContent = "ORDER NOW";
+            orderBtn.onclick = () => alert(`Added "${p.title}" to cart`);
+            
+            const favBtn = document.createElement("button");
+            favBtn.className = "btn fav-btn";
+            favBtn.innerHTML = `<span class="material-icons">favorite_border</span>`;
+            favBtn.onclick = () => {
+                favBtn.classList.toggle("active");
+                favBtn.innerHTML = `<span class="material-icons">${favBtn.classList.contains("active") ? "favorite" : "favorite_border"}</span>`;
+            };
+
+            right.append(orderBtn, favBtn);
+            actions.append(left, right);
+            card.appendChild(actions);
+            gridEl.appendChild(card);
+        });
+    }
+
+    function renderPagination() {
+        if(!paginationEl) return;
+        paginationEl.innerHTML = "";
+        const total = getFilteredProducts().length;
+        const pages = Math.ceil(total / state.perPage);
+        if (pages <= 1) return;
+
+        const createBtn = (label, page, disabled = false, active = false) => {
+            const btn = document.createElement("button");
+            btn.className = "page-btn";
+            if (active) btn.classList.add("active");
+            btn.disabled = disabled;
+            btn.textContent = label;
+            btn.onclick = () => { state.currentPage = page; render(); window.scrollTo({ top: 0, behavior: "smooth" }); };
+            return btn;
+        };
+
+        paginationEl.appendChild(createBtn("Prev", state.currentPage - 1, state.currentPage === 1));
+        for (let i = 1; i <= pages; i++) {
+            paginationEl.appendChild(createBtn(i, i, false, i === state.currentPage));
+        }
+        paginationEl.appendChild(createBtn("Next", state.currentPage + 1, state.currentPage === pages));
+    }
+
+    function render() {
+        renderProducts();
+        renderPagination();
+    }
+
+    renderTabs();
+    setTimeout(render, 100);
+
+    searchInput?.addEventListener("input", e => { state.search = e.target.value; state.currentPage = 1; render(); });
+    sortSelect?.addEventListener("change", () => { state.currentPage = 1; render(); });
 
     
-     <div class="footer-col">
-      <a href="index.html">Home</a>
-      <a href="menu.html">Menu</a>
-      <a href="promotion.html">Promotions</a>
-      <a href="about_us.html">About </a>
+document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn')
+            .forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+    });
+});
+
+
+});
+</script>
+
+</head>
+
+<body class="menu-page">
+
+<nav class="navbar">
+    <div class="nav-left">
+        <div class="logo-circle">
+            <img src="assets/images/Logo/logo.jpg" alt="QuickBite PH Logo">
+        </div>
+        <div class="brand">QuickBite PH</div>
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html" class="active">Menu</a></li>
+        <li><a href="promotions.html">Promotions</a></li>
+        <li><a href="contacts.html">Contacts</a></li>
+        <li><a href="about_us.html">About Us</a></li>
+    </ul>
+
+    <div class="nav-right">
+        <div class="search-box">
+            <input type="text" placeholder="Search">
+        </div>
+        
+        <button class="login-btn">Login</button>
+        <div class="nav-icons">
+            👤<span id="userName">Guest</span>
+            <div class="profile-dropdown" id="profileDropdown">
+                <ul>
+                    <li id="myProfile">My Profile</li>
+                    <li><a href="menu.html" style="text-decoration: none; color: inherit;">Orders</a></li>
+                    <li id="logoutBtn">Sign Out</li>
+                </ul>
+            </div>
+        </div>
+        <a href="Faq.html" style="text-decoration: none; color: black; font-weight: bold; font-size: 15px;">FAQ</a>
+    </div>
+</nav>
+
+
+<div class="menu-controls">
+    <div class="tabs" id="category-tabs"></div>
+    <div style="display:flex; gap:10px;">
+        <input id="global-search" type="text" placeholder="Search..." 
+            style="padding:8px 12px; border:1px solid #333; border-radius:6px;">
+        <select id="sort-select" style="padding:8px 12px; border:1px solid #333; border-radius:6px;">
+            <option value="default">Sort</option>
+            <option value="price-asc">Price: Low → High</option>
+            <option value="price-desc">Price: High → Low</option>
+            <option value="time-asc">Prep Time: Fastest</option>
+            <option value="time-desc">Prep Time: Longest</option>
+        </select>
+    </div>
+</div>
+
+<div class="product-grid" id="product-grid"></div>
+<div class="pagination" id="pagination"></div>
+
+<script>
+    const products = [
+        /* ---------- RICE BOWLS ---------- */
+        {id:101,title:"Salted Egg Chicken Wings",primaryCategory:"Rice Bowls",price:149.00,time:15,tags:["Chicken","Spicy"],image:"assets/images/menu/salted_egg.jpg"},
+        {id:102,title:"Beef Tapa",primaryCategory:"Rice Bowls",price:129.00,time:14,tags:["Beef"],image:"assets/images/menu/beef_tapa.jpg"},
+        {id:104,title:"Grilled Bangus Belly",primaryCategory:"Rice Bowls",price:159.00,time:16,tags:["Fish","Grilled"],image:"assets/images/menu/grilled_bangus.jpg"},
+        {id:105,title:"Teriyaki Chicken Bowl",primaryCategory:"Rice Bowls",price:139.00,time:15,tags:["Chicken","Sweet"],image:"assets/images/menu/teriyaki_bowl.jpg"},
+        {id:106,title:"Ham and Veggie Rice Bowl",primaryCategory:"Rice Bowls",price:119.00,time:12,tags:["Pork","Vegetarian-Friendly"],image:"assets/images/menu/ham_and_veggie_bowl.jpg"},
+        {id:107,title:"Chicken Ala King",primaryCategory:"Rice Bowls",price:129.00,time:14,tags:["Chicken","Creamy"],image:"assets/images/menu/chicken_ala_king.jpg"},
+        /* ---------- PASTA & NOODLES ---------- */
+        {id:201,title:"Creamy Carbonara",primaryCategory:"Pasta & Noodles",price:129.00,time:12,tags:["Creamy","Pork"],image:"assets/images/menu/creamy_carbonara.jpg"},
+        {id:202,title:"Filipino Sweet Spaghetti",primaryCategory:"Pasta & Noodles",price:99.00,time:10,tags:["Sweet"],image:"assets/images/menu/filipino_sweet_spaghetti.jpg"},
+        {id:203,title:"Garlic Butter Shrimp Pasta",primaryCategory:"Pasta & Noodles",price:159.00,time:14,tags:["Seafood","Garlic"],image:"assets/images/menu/garlic_butter_shrimp_pasta.jpg"},
+        {id:204,title:"Pancit Canton Express",primaryCategory:"Pasta & Noodles",price:89.00,time:9,tags:["Noodles","Savory"],image:"assets/images/menu/pancit_canton_express.jpg"},
+        /* ---------- WRAPS & SANDWICHES ---------- */
+        {id:301,title:"Beef Cheesy Shawarma Wrap",primaryCategory:"Wraps & Sandwiches",price:129.00,time:11,tags:["Beef","Cheesy"],image:"assets/images/menu/beef_shawarma_wrap.jpg"},
+        {id:302,title:"Melt Tuna Cheesy Sandwich",primaryCategory:"Wraps & Sandwiches",price:99.00,time:8,tags:["Seafood","Cheesy"],image:"assets/images/menu/melt_tuna_sandwich.jpg"},
+        {id:303,title:"Crispy Chicken Wrap",primaryCategory:"Wraps & Sandwiches",price:119.00,time:10,tags:["Chicken","Crispy"],image:"assets/images/menu/crispy_chicken_wrap.jpg"},
+        {id:304,title:"Cheesy Burger",primaryCategory:"Wraps & Sandwiches",price:109.00,time:12,tags:["Beef","Cheesy"],image:"assets/images/menu/cheesy_burger.jpg"},
+        {id:305,title:"Crispy Double Cheese Bacon w/ Egg",primaryCategory:"Wraps & Sandwiches",price:169.00,time:18,tags:["Pork","Cheesy"],image:"assets/images/menu/crispy_double_cheese_bacon.jpg"},
+        /* ---------- VEGETABLES & FRUITS ---------- */
+        {id:401,title:"Tofu Sisig Rice Bowl",primaryCategory:"Vegetables & Fruits",price:129.00,time:13,tags:["Vegetarian-Friendly","Spicy"],image:"assets/images/menu/tofu_sisig.jpg"},
+        {id:402,title:"Assorted Veggie Salad",primaryCategory:"Vegetables & Fruits",price:119.00,time:7,tags:["Vegetarian-Friendly","Fresh"],image:"assets/images/menu/veggie_salad.jpg"},
+        {id:403,title:"Fruity Mix",primaryCategory:"Vegetables & Fruits",price:89.00,time:5,tags:["Fresh","Healthy"],image:"assets/images/menu/fruity_mix.jpg"},
+        /* ---------- DRINKS ---------- */
+        {id:501,title:"Iced Caramel Coffee Macchiato",primaryCategory:"Drinks & Refreshers",price:69.00,time:3,tags:["Coffee","Sweet"],image:"assets/images/menu/iced_caramel_macchiato.jpg"},
+        {id:502,title:"Coke Sundae",primaryCategory:"Drinks & Refreshers",price:49.00,time:2,tags:["Cold","Sweet"],image:"assets/images/menu/coke_sundae.jpg"},
+        {id:503,title:"Pineapple Juice",primaryCategory:"Drinks & Refreshers",price:39.00,time:1,tags:["Fruit","Fresh"],image:"assets/images/menu/pineapple_juice.jpg"},
+        {id:504,title:"Citrus Cucumber",primaryCategory:"Drinks & Refreshers",price:45.00,time:2,tags:["Fresh","Healthy"],image:"assets/images/menu/citrus_cucumber.jpg"},
+        /* ---------- DESSERTS ---------- */
+        {id:601,title:"Leche Flan",primaryCategory:"Desserts",price:59.00,time:4,tags:["Sweet","Classic"],badge:"",image:"assets/images/menu/leche_flan.jpg"},
+        {id:602,title:"Coffee Jelly",primaryCategory:"Desserts",price:49.00,time:3,tags:["Coffee","Sweet"],badge:"",image:"assets/images/menu/coffee_jelly.jpg"},
+        {id:603,title:"Banana Turon Rolls",primaryCategory:"Desserts",price:39.00,time:5,tags:["Fried","Sweet"],badge:"",image:"assets/images/menu/banana_turon.jpg"},
+        {id:604,title:"Ube Cheesecake Slice",primaryCategory:"Desserts",price:79.00,time:6,tags:["Ube","Cheesy","Sweet"],image:"assets/images/menu/ube_cheesecake.jpg"}
+    ];
+</script>
+
+<footer class="footer">
+    <div class="footer-col">
+        <p>QuickBite PH</p>
+        <p>📍 Manila, Philippines</p>
+        <p>📧 support@quickbiteph.com</p>
+        <p>📞 (+63) 912 345 6789</p>
+        
+        <div class="social-links">
+            <a href="https://www.facebook.com/elijahart0" target="_blank">
+                <img src="assets/images/facebook.png" alt="Facebook Icon">
+            </a>
+            <a href="https://www.instagram.com/elijah_art0724/" target="_blank">
+                <img src="assets/images/instagram.png" alt="Instagram Icon">
+            </a>
+            <a href="https://x.com/elijah_hart0" target="_blank">
+                <img src="assets/images/twitter.png" alt="Twitter Icon">
+            </a>
+        </div>
     </div>
 
     <div class="footer-col">
-      <a href="#">Contacts</a>
-      <a href="#">My Contacts/Orders
-      <a href="faq.html">FAQ</a>
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="promotions.html">Promotions</a>
+        <a href="about_us.html">About Us</a>
+    </div>
+
+    <div class="footer-col">
+        <a href="contacts.html">Contacts</a>
+        <a href="Faq.html">FAQ</a>
     </div>
 
     <div class="footer-logo">
-      <img src="assets/images/Logo/logo.jpg" alt="QuickBite PH Logo">
+        <img src="assets/images/Logo/logo.jpg" alt="QuickBite PH Logo">
     </div>
-  </footer>
+</footer>
+
+<div id="loginModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <div class="modal-logo">
+            <img src="assets/images/Logo/logo.jpg" alt="QuickBite Logo">
+        </div>
+        <h2>Welcome Back!</h2>
+        <p class="subtitle">Sign in to your account.</p>
+
+        <form class="login-form">
+            <div class="input-group">
+                <input type="text" id="emailInput" placeholder="Email">
+                <span class="error-msg" id="emailError">This field cannot be blank.</span>
+            </div>
+            <div class="input-group password-box">
+                <input type="password" id="passwordInput" placeholder="Password">
+                <span class="toggle-password">👁️</span>
+            </div>
+            <a href="#" class="forgot">Forgot your Password?</a>
+            <button type="button" class="login-btn-modal">Log In</button>
+            <div class="divider-or"><span>OR</span></div>
+            <button type="button" class="facebook-btn">Log in with Facebook</button>
+            <button type="button" class="guest-btn" id="guestBtn">Continue as Guest</button>
+        </form>
+        <p class="disclaimer">By continuing, you agree to our updated <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a>.</p>
+        <p class="signup-link">Sign Up Here!</p>
+    </div>
+</div>
+
+</body>
+</html>
