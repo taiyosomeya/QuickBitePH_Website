@@ -66,13 +66,13 @@
     transform: scale(1.05);
 }
 
-/* Clicked / Active tab */
+
 .tab-btn.active {
     background: #111;
     color: #fff;
 }
 
-/* Keep active tab black even when hovered */
+
 .tab-btn.active:hover {
     background: #111;
     color: #fff;
@@ -205,8 +205,8 @@
 .card-actions {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* price on left, buttons on right */
-    margin-top: auto; /* pushes buttons to bottom of card */
+    justify-content: space-between;
+    margin-top: auto; 
     padding-top: 10px;
 }
 
@@ -218,11 +218,11 @@
 .action-right {
     display: flex;
     align-items: center;
-    gap: 12px; /* SPACE BETWEEN ORDER NOW & FAVORITE */
+    gap: 12px;
 }
 .card-actions {
     display: flex;
-    justify-content: flex-end; /* buttons only */
+    justify-content: flex-end; 
     margin-top: auto;
 }
 
@@ -321,8 +321,7 @@
     border-radius: 18px;
     position: relative;
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    text-align: center; /* Centered content like original */
-}
+    text-align: center; 
 
 .close-btn {
     position: absolute;
@@ -373,14 +372,14 @@
 .facebook-btn { width: 100%; padding: 12px; background: #1877F2; color: #fff; border: none; border-radius: 8px; margin-bottom: 12px; cursor: pointer; font-weight: bold; }
 .guest-btn { width: 100%; padding: 12px; background: #e0e0e0; border: 1px solid #b5b5b5; border-radius: 8px; cursor: pointer; color: #333; font-weight: bold; }
 
-/* Missing Disclaimer & Signup Styles */
+/*  Disclaimer & Signup Styles */
 .disclaimer { margin-top: 15px; font-size: 13px; color: #666; line-height: 1.4; }
 .disclaimer a { color: black; font-weight: bold; text-decoration: underline; }
 .signup-link { margin-top: 10px; font-size: 14px; color: #0066ff; cursor: pointer; text-decoration: underline; font-weight: bold; }
 .divider-or { margin: 15px 0; font-weight: bold; color: #333; }
 .forgot { display: block; margin: 10px 0; font-size: 13px; color: #0066ff; cursor: pointer; }
 
-/* NAV STYLES COPIED TO FIX ALIGNMENT */
+/* NAV STYLES ALIGNMENT */
 .navbar {
     width: 100%;
     background: #fff4dc;
@@ -437,7 +436,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const logoutBtn = document.getElementById("logoutBtn");
     const navIcons = document.querySelector(".nav-icons");
 
-    // Helper: Update Navbar based on user
+    //  Update Navbar based on user
     function updateNavbar(user) {
         if (!user || user.role === "guest") {
             userNameDisplay.textContent = "Guest";
@@ -490,12 +489,10 @@ document.addEventListener("DOMContentLoaded", () => {
         loginModal.style.display = "none";
     });
 
-    // 5. DROPDOWN TOGGLE (Fixed: Click anywhere on icon/name)
+    // 5. DROPDOWN TOGGLE
     if(navIcons) {
         navIcons.addEventListener("click", (e) => {
-            // Prevent toggling if clicking inside the dropdown menu itself
             if(e.target.closest(".profile-dropdown")) return;
-            
             const user = JSON.parse(localStorage.getItem("quickbiteUser"));
             if (user && user.role === "user") {
                 profileDropdown.style.display = profileDropdown.style.display === "block" ? "none" : "block";
@@ -806,4 +803,5 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
 
 </body>
 </html>
+
 
